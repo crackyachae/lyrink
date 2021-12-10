@@ -1,11 +1,19 @@
 {
-  "name": "create-nodejs-express-app",
-  "version": "1.7.0",
-  "description": "Create a Node.js app for building production-ready RESTful APIs using Express, by running one command",
+  "name": "lyrink",
+  "version": "0.1.0",
+  "description": "A music review system focusing on the links between lyrics.",
   "bin": "bin/createNodejsApp.js",
   "main": "src/index.js",
-  "repository": "https://github.com/hagopj13/node-express-boilerplate.git",
-  "author": "Hagop Jamkojian <hagopj13@gmail.com>",
+  "repository": "https://github.com/crackyachae/lyrink.git",
+  "author": {
+    "name": "Crackyachae",
+    "email": "crackyachae@gmail.com",
+    "url": "https://github.com/crackyachae"
+  },
+  "homepage": "https://github.com/crackyachae/lyrink#readme",
+  "bugs": {
+    "url": "https://github.com/crackyachae/lyrink/issues"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=12.0.0"
@@ -27,26 +35,10 @@
     "prepare": "husky install"
   },
   "keywords": [
-    "node",
-    "node.js",
-    "boilerplate",
-    "generator",
-    "express",
-    "rest",
-    "api",
-    "mongodb",
-    "mongoose",
-    "es6",
-    "es7",
-    "es8",
-    "es9",
-    "jest",
-    "travis",
-    "docker",
-    "passport",
-    "joi",
-    "eslint",
-    "prettier"
+    "music",
+    "review",
+    "lyric",
+    "link"
   ],
   "dependencies": {
     "bcryptjs": "^2.4.3",
