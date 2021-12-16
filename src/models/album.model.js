@@ -11,6 +11,11 @@ const trackSchema = mongoose.Schema({
    *  type: Number,
    *  required: [true, 'error message'],
    */
+  id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Track',
+    required: [true, 'track id required'],
+  },
   title: {
     type: String,
     required: [true, 'song title required'],
@@ -20,10 +25,6 @@ const trackSchema = mongoose.Schema({
     type: [String],
     required: [true, 'song artist required'],
   },
-});
-
-trackSchema.virtual('url').get(function () {
-  return `/track/${this._id}`;
 });
 
 const albumSchema = mongoose.Schema({
@@ -45,6 +46,10 @@ const albumSchema = mongoose.Schema({
     type: Date,
   },
   song: [[trackSchema]], // [discNum - 1][trackNum - 1]
+});
+
+albumSchema.virtual('url').get(function () {
+  return `/album/${this._id}`;
 });
 
 /**
