@@ -69,6 +69,10 @@ const insertAlbums = async (albums) => {
   await Album.insertMany(albums);
 };
 
+const setTracksInAlbum = async (tracks, album) => {
+  Album.findByIdAndUpdate(album._id, { tracks });
+};
+
 module.exports = {
   albumStudio,
   albumEpOne,
@@ -76,4 +80,5 @@ module.exports = {
   albumSingleOne,
   albumSingleTwo,
   insertAlbums,
+  setTracksInAlbum,
 };

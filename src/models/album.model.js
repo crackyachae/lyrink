@@ -51,7 +51,7 @@ const albumSchema = mongoose.Schema({
     required: [true, 'album artists required'],
     default: ['Unknown'],
   },
-  song: [[trackSchema]], // [discNum - 1][trackNum - 1]
+  tracks: [[trackSchema]], // [discNum - 1][trackNum - 1]
 });
 
 albumSchema.virtual('url').get(function () {
