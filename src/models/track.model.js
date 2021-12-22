@@ -32,6 +32,11 @@ const trackSchema = mongoose.Schema({
     type: String,
     required: [true, 'track title required'],
   },
+  artists: {
+    type: [String],
+    required: [true, 'track artists required'],
+    default: ['Unknown'],
+  },
   lyric: {
     type: [[lyricSchema]],
   },

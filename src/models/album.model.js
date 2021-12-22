@@ -21,9 +21,10 @@ const trackSchema = mongoose.Schema({
     required: [true, 'song title required'],
     trim: true,
   },
-  artist: {
+  artists: {
     type: [String],
-    required: [true, 'song artist required'],
+    required: [true, 'song artists required'],
+    default: ['Unknown'],
   },
 });
 
@@ -44,6 +45,11 @@ const albumSchema = mongoose.Schema({
   },
   releaseDate: {
     type: Date,
+  },
+  artists: {
+    type: [String],
+    required: [true, 'album artists required'],
+    default: ['Unknown'],
   },
   song: [[trackSchema]], // [discNum - 1][trackNum - 1]
 });
