@@ -26,215 +26,55 @@ const lyricSchema = mongoose.Schema({
 });
 */
 
-const trackStudioOne = {
+const tracksStudio = new Array(10).map((track, index) => ({
   _id: mongoose.Schema.Types.ObjectId,
   album,
   albumId,
   artists,
   discNum: 1,
-  trackNum: 1,
+  trackNum: index + 1,
   title: faker.lorem.words(),
-};
+}));
 
-const trackStudioTwo = {
+const tracksEpOne = new Array(4).map((track, index) => ({
   _id: mongoose.Schema.Types.ObjectId,
   album,
   albumId,
   artists,
   discNum: 1,
-  trackNum: 2,
+  trackNum: index + 1,
   title: faker.lorem.words(),
-};
+}));
 
-const trackStudioThree = {
+const tracksEpTwo = new Array(4).map((track, index) => ({
   _id: mongoose.Schema.Types.ObjectId,
   album,
   albumId,
   artists,
   discNum: 1,
-  trackNum: 3,
+  trackNum: index + 1,
   title: faker.lorem.words(),
-};
+}));
 
-const trackStudioFour = {
+const tracksSingleOne = new Array(1).map((track, index) => ({
   _id: mongoose.Schema.Types.ObjectId,
   album,
   albumId,
   artists,
   discNum: 1,
-  trackNum: 4,
+  trackNum: index + 1,
   title: faker.lorem.words(),
-};
+}));
 
-const trackStudioFive = {
+const tracksSingleTwo = new Array(2).map((track, index) => ({
   _id: mongoose.Schema.Types.ObjectId,
   album,
   albumId,
   artists,
   discNum: 1,
-  trackNum: 5,
+  trackNum: index + 1,
   title: faker.lorem.words(),
-};
-
-const trackStudioSix = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 6,
-  title: faker.lorem.words(),
-};
-
-const trackStudioSeven = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 7,
-  title: faker.lorem.words(),
-};
-
-const trackStudioEight = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 8,
-  title: faker.lorem.words(),
-};
-
-const trackStudioNine = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 9,
-  title: faker.lorem.words(),
-};
-
-const trackStudioTen = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 10,
-  title: faker.lorem.words(),
-};
-
-const trackEpOneOne = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 1,
-  title: faker.lorem.words(),
-};
-
-const trackEpOneTwo = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 2,
-  title: faker.lorem.words(),
-};
-
-const trackEpOneThree = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 3,
-  title: faker.lorem.words(),
-};
-
-const trackEpOneFour = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 4,
-  title: faker.lorem.words(),
-};
-
-const trackEpTwoOne = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 1,
-  title: faker.lorem.words(),
-};
-
-const trackEpTwoTwo = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 2,
-  title: faker.lorem.words(),
-};
-
-const trackEpTwoThree = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 3,
-  title: faker.lorem.words(),
-};
-
-const trackEpTwoFour = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 4,
-  title: faker.lorem.words(),
-};
-
-const trackSingleOneOne = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 1,
-  title: faker.lorem.words(),
-};
-
-const trackSingleTwoOne = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 1,
-  title: faker.lorem.words(),
-};
-
-const trackSingleTwoTwo = {
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: 2,
-  title: faker.lorem.words(),
-};
+}));
 
 const insertTracks = async (tracks, album) => {
   await Track.insertMany(
@@ -243,26 +83,10 @@ const insertTracks = async (tracks, album) => {
 };
 
 module.exports = {
-  trackStudioOne,
-  trackStudioTwo,
-  trackStudioThree,
-  trackStudioFour,
-  trackStudioFive,
-  trackStudioSix,
-  trackStudioSeven,
-  trackStudioEight,
-  trackStudioNine,
-  trackStudioTen,
-  trackEpOneOne,
-  trackEpOneTwo,
-  trackEpOneThree,
-  trackEpOneFour,
-  trackEpTwoOne,
-  trackEpTwoTwo,
-  trackEpTwoThree,
-  trackEpTwoFour,
-  trackSingleOneOne,
-  trackSingleTwoOne,
-  trackSingleTwoTwo,
+  tracksStudio,
+  tracksEpOne,
+  tracksEpTwo,
+  tracksSingleOne,
+  tracksSingleTwo,
   insertTracks,
 };
