@@ -26,59 +26,76 @@ const lyricSchema = mongoose.Schema({
 });
 */
 
-const tracksStudio = new Array(10).map((track, index) => ({
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: index + 1,
-  title: faker.lorem.words(),
-}));
+const studioDiscNumber = () => 1 + Math.floor(Math.random());
+const studioTrackNumber = () => 8 + Math.floor(Math.random() * 5);
+const epTrackNumber = () => 4 + Math.floor(Math.random() * 3);
+const singleTrackNumber = () => 1 + Math.floor(Math.random() * 3);
 
-const tracksEpOne = new Array(4).map((track, index) => ({
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: index + 1,
-  title: faker.lorem.words(),
-}));
+const tracksStudio = new Array(studioDiscNumber()).map((disc, discNum) =>
+  new Array(studioTrackNumber()).map((track, trackNum) => ({
+    _id: mongoose.Schema.Types.ObjectId,
+    album,
+    albumId,
+    artists,
+    discNum: discNum + 1,
+    trackNum: trackNum + 1,
+    title: faker.lorem.words(),
+  })),
+);
 
-const tracksEpTwo = new Array(4).map((track, index) => ({
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: index + 1,
-  title: faker.lorem.words(),
-}));
+const tracksEpOne = new Array(1).map(() =>
+  new Array(epTrackNumber()).map((track, trackNum) => ({
+    _id: mongoose.Schema.Types.ObjectId,
+    album,
+    albumId,
+    artists,
+    discNum: 1,
+    trackNum: trackNum + 1,
+    title: faker.lorem.words(),
+  })),
+);
 
-const tracksSingleOne = new Array(1).map((track, index) => ({
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: index + 1,
-  title: faker.lorem.words(),
-}));
+const tracksEpTwo = new Array(1).map(() =>
+  new Array(epTrackNumber()).map((track, trackNum) => ({
+    _id: mongoose.Schema.Types.ObjectId,
+    album,
+    albumId,
+    artists,
+    discNum: 1,
+    trackNum: trackNum + 1,
+    title: faker.lorem.words(),
+  })),
+);
 
-const tracksSingleTwo = new Array(2).map((track, index) => ({
-  _id: mongoose.Schema.Types.ObjectId,
-  album,
-  albumId,
-  artists,
-  discNum: 1,
-  trackNum: index + 1,
-  title: faker.lorem.words(),
-}));
+const tracksSingleOne = new Array(1).map(() =>
+  new Array(singleTrackNumber()).map((track, trackNum) => ({
+    _id: mongoose.Schema.Types.ObjectId,
+    album,
+    albumId,
+    artists,
+    discNum: 1,
+    trackNum: trackNum + 1,
+    title: faker.lorem.words(),
+  })),
+);
+
+const tracksSingleTwo = new Array(1).map(() =>
+  new Array(singleTrackNumber()).map((track, trackNum) => ({
+    _id: mongoose.Schema.Types.ObjectId,
+    album,
+    albumId,
+    artists,
+    discNum: 1,
+    trackNum: trackNum + 1,
+    title: faker.lorem.words(),
+  })),
+);
 
 const insertTracks = async (tracks, album) => {
   await Track.insertMany(
-    tracks.map((track) => ({ ...track, album: album.title, albumId: album._id })),
+    tracks.forEach((disc) =>
+      disc.map((track) => ({ ...track, album: album.title, albumId: album._id })),
+    ),
   );
 };
 
