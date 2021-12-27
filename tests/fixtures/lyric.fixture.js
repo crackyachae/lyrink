@@ -26,7 +26,12 @@ const insertLyrics = async (lyrics, track) => {
   );
 };
 
+const appendReview = async (review, lyric) => {
+  Lyric.findByIdAndUpdate(lyric._id, { reviewList: lyric.reviewList.append(review) });
+};
+
 module.exports = {
   createLyrics,
   insertLyrics,
+  appendReview,
 };

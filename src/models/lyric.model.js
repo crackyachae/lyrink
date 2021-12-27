@@ -17,7 +17,7 @@ const lyricSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: [true, 'have to specify the track id it belongs to'],
   },
-  list: {
+  reviewList: {
     type: [reviewSchema],
   },
 });
