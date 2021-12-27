@@ -2,10 +2,11 @@ const mongoose = require('mongoose');
 const faker = require('faker');
 const Review = require('../../src/models/review.model');
 
-const writer = mongoose.Schema.Types.ObjectId;
-const trackId = mongoose.Schema.Types.ObjectId;
+const writer = mongoose.Types.ObjectId();
+const trackId = mongoose.Types.ObjectId();
 
 const reviewOne = {
+  _id: mongoose.Types.ObjectId(),
   createdDate: faker.date.past(2),
   updatedDate: faker.date.recent(),
   content: faker.lorem.paragraphs(),
@@ -14,6 +15,7 @@ const reviewOne = {
 };
 
 const reviewTwo = {
+  _id: mongoose.Types.ObjectId(),
   createdDate: faker.date.past(2),
   updatedDate: faker.date.recent(),
   content: faker.lorem.paragraphs(),
@@ -22,6 +24,7 @@ const reviewTwo = {
 };
 
 const reviewThree = {
+  _id: mongoose.Types.ObjectId(),
   createdDate: faker.date.past(2),
   updatedDate: faker.date.recent(),
   content: faker.lorem.paragraphs(),
@@ -30,6 +33,7 @@ const reviewThree = {
 };
 
 const reviewFour = {
+  _id: mongoose.Types.ObjectId(),
   createdDate: faker.date.past(2),
   updatedDate: faker.date.recent(),
   content: faker.lorem.paragraphs(),
@@ -38,6 +42,7 @@ const reviewFour = {
 };
 
 const reviewFive = {
+  _id: mongoose.Types.ObjectId(),
   createdDate: faker.date.past(2),
   updatedDate: faker.date.recent(),
   content: faker.lorem.paragraphs(),

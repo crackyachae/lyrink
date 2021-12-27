@@ -3,7 +3,7 @@ const faker = require('faker');
 const Track = require('../../src/models/track.model');
 
 const album = 'album1';
-const albumId = mongoose.Schema.Types.ObjectId;
+const albumId = mongoose.Types.ObjectId();
 const artists = ['artist1'];
 
 /*
@@ -31,9 +31,9 @@ const studioTrackNumber = () => 8 + Math.floor(Math.random() * 5);
 const epTrackNumber = () => 4 + Math.floor(Math.random() * 3);
 const singleTrackNumber = () => 1 + Math.floor(Math.random() * 3);
 
-const tracksStudio = new Array(studioDiscNumber()).map((disc, discNum) =>
-  new Array(studioTrackNumber()).map((track, trackNum) => ({
-    _id: mongoose.Schema.Types.ObjectId,
+const tracksStudio = [...Array(studioDiscNumber())].map((disc, discNum) =>
+  [...Array(studioTrackNumber())].map((track, trackNum) => ({
+    _id: mongoose.Types.ObjectId(),
     album,
     albumId,
     artists,
@@ -43,9 +43,9 @@ const tracksStudio = new Array(studioDiscNumber()).map((disc, discNum) =>
   })),
 );
 
-const tracksEpOne = new Array(1).map(() =>
-  new Array(epTrackNumber()).map((track, trackNum) => ({
-    _id: mongoose.Schema.Types.ObjectId,
+const tracksEpOne = [...Array(1)].map((disc, discNum) =>
+  [...Array(studioTrackNumber())].map((track, trackNum) => ({
+    _id: mongoose.Types.ObjectId(),
     album,
     albumId,
     artists,
@@ -55,9 +55,9 @@ const tracksEpOne = new Array(1).map(() =>
   })),
 );
 
-const tracksEpTwo = new Array(1).map(() =>
-  new Array(epTrackNumber()).map((track, trackNum) => ({
-    _id: mongoose.Schema.Types.ObjectId,
+const tracksEpTwo = [...Array(1)].map((disc, discNum) =>
+  [...Array(studioTrackNumber())].map((track, trackNum) => ({
+    _id: mongoose.Types.ObjectId(),
     album,
     albumId,
     artists,
@@ -67,9 +67,9 @@ const tracksEpTwo = new Array(1).map(() =>
   })),
 );
 
-const tracksSingleOne = new Array(1).map(() =>
-  new Array(singleTrackNumber()).map((track, trackNum) => ({
-    _id: mongoose.Schema.Types.ObjectId,
+const tracksSingleOne = [...Array(1)].map((disc, discNum) =>
+  [...Array(studioTrackNumber())].map((track, trackNum) => ({
+    _id: mongoose.Types.ObjectId(),
     album,
     albumId,
     artists,
@@ -79,9 +79,9 @@ const tracksSingleOne = new Array(1).map(() =>
   })),
 );
 
-const tracksSingleTwo = new Array(1).map(() =>
-  new Array(singleTrackNumber()).map((track, trackNum) => ({
-    _id: mongoose.Schema.Types.ObjectId,
+const tracksSingleOne = [...Array(1)].map((disc, discNum) =>
+  [...Array(studioTrackNumber())].map((track, trackNum) => ({
+    _id: mongoose.Types.ObjectId(),
     album,
     albumId,
     artists,

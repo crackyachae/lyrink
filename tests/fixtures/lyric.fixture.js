@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const faker = require('faker');
 const Lyric = require('../../src/models/lyric.model');
 
-const trackId = mongoose.Schema.Types.ObjectId;
+const trackId = mongoose.Types.ObjectId();
 const randomLines = () => 20 + Math.floor(Math.random() * 20);
 
 const createLyrics = () =>
@@ -15,6 +15,7 @@ const createLyrics = () =>
         .trim()
         .split(' ')
         .map((word) => ({
+          _id: mongoose.Types.ObjectId(),
           text: word,
           trackId,
         })),
