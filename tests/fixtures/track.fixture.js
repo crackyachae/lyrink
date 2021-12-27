@@ -99,6 +99,10 @@ const insertTracks = async (tracks, album) => {
   );
 };
 
+const setLyricsInTrack = async (lyrics, track) => {
+  Track.findByIdAndUpdate(track._id, { lyrics });
+};
+
 module.exports = {
   tracksStudio,
   tracksEpOne,
@@ -106,4 +110,5 @@ module.exports = {
   tracksSingleOne,
   tracksSingleTwo,
   insertTracks,
+  setLyricsInTrack,
 };
