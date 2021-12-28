@@ -79,7 +79,7 @@ const tracksSingleOne = [...Array(1)].map((disc, discNum) =>
   })),
 );
 
-const tracksSingleOne = [...Array(1)].map((disc, discNum) =>
+const tracksSingleTwo = [...Array(1)].map((disc, discNum) =>
   [...Array(studioTrackNumber())].map((track, trackNum) => ({
     _id: mongoose.Types.ObjectId(),
     album,
