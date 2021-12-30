@@ -6,25 +6,6 @@ const types = ['정규', 'EP', '싱글', '라이브', '리믹스', 'OST', '컴�
 const artists = ['artist1'];
 const YEAR_RANGE = 20;
 
-/*
-const songOne = {
-  id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Track',
-    required: [true, 'track id required'],
-  },
-  title: {
-    type: String,
-    required: [true, 'song title required'],
-    trim: true,
-  },
-  artist: {
-    type: [String],
-    required: [true, 'song artist required'],
-  },
-};
-*/
-
 const albumStudio = {
   _id: mongoose.Types.ObjectId(),
   title: faker.lorem.words(),
@@ -69,8 +50,8 @@ const insertAlbums = async (albums) => {
   await Album.insertMany(albums);
 };
 
-const setTracksInAlbum = async (tracks, album) => {
-  Album.findByIdAndUpdate(album._id, { tracks });
+const setTrackListInAlbum = async (trackList, album) => {
+  Album.findByIdAndUpdate(album._id, { trackList });
 };
 
 module.exports = {
@@ -80,5 +61,5 @@ module.exports = {
   albumSingleOne,
   albumSingleTwo,
   insertAlbums,
-  setTracksInAlbum,
+  setTrackListInAlbum,
 };

@@ -31,7 +31,7 @@ const studioTrackNumber = () => 8 + Math.floor(Math.random() * 5);
 const epTrackNumber = () => 4 + Math.floor(Math.random() * 3);
 const singleTrackNumber = () => 1 + Math.floor(Math.random() * 3);
 
-const tracksStudio = [...Array(studioDiscNumber())].map((disc, discNum) =>
+const trackListStudio = [...Array(studioDiscNumber())].map((disc, discNum) =>
   [...Array(studioTrackNumber())].map((track, trackNum) => ({
     _id: mongoose.Types.ObjectId(),
     album,
@@ -43,7 +43,7 @@ const tracksStudio = [...Array(studioDiscNumber())].map((disc, discNum) =>
   })),
 );
 
-const tracksEpOne = [...Array(1)].map((disc, discNum) =>
+const trackListEpOne = [...Array(1)].map((disc, discNum) =>
   [...Array(studioTrackNumber())].map((track, trackNum) => ({
     _id: mongoose.Types.ObjectId(),
     album,
@@ -55,7 +55,7 @@ const tracksEpOne = [...Array(1)].map((disc, discNum) =>
   })),
 );
 
-const tracksEpTwo = [...Array(1)].map((disc, discNum) =>
+const trackListEpTwo = [...Array(1)].map((disc, discNum) =>
   [...Array(studioTrackNumber())].map((track, trackNum) => ({
     _id: mongoose.Types.ObjectId(),
     album,
@@ -67,7 +67,7 @@ const tracksEpTwo = [...Array(1)].map((disc, discNum) =>
   })),
 );
 
-const tracksSingleOne = [...Array(1)].map((disc, discNum) =>
+const trackListSingleOne = [...Array(1)].map((disc, discNum) =>
   [...Array(studioTrackNumber())].map((track, trackNum) => ({
     _id: mongoose.Types.ObjectId(),
     album,
@@ -79,7 +79,7 @@ const tracksSingleOne = [...Array(1)].map((disc, discNum) =>
   })),
 );
 
-const tracksSingleTwo = [...Array(1)].map((disc, discNum) =>
+const trackListSingleTwo = [...Array(1)].map((disc, discNum) =>
   [...Array(studioTrackNumber())].map((track, trackNum) => ({
     _id: mongoose.Types.ObjectId(),
     album,
@@ -104,11 +104,11 @@ const setLyricsInTrack = async (lyrics, track) => {
 };
 
 module.exports = {
-  tracksStudio,
-  tracksEpOne,
-  tracksEpTwo,
-  tracksSingleOne,
-  tracksSingleTwo,
+  trackListStudio,
+  trackListEpOne,
+  trackListEpTwo,
+  trackListSingleOne,
+  trackListSingleTwo,
   insertTracks,
   setLyricsInTrack,
 };
