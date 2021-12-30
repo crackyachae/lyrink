@@ -44,7 +44,7 @@ const trackListStudio = [...Array(studioDiscNumber())].map((disc, discNum) =>
 );
 
 const trackListEpOne = [...Array(1)].map((disc, discNum) =>
-  [...Array(studioTrackNumber())].map((track, trackNum) => ({
+  [...Array(epTrackNumber())].map((track, trackNum) => ({
     _id: mongoose.Types.ObjectId(),
     album,
     albumId,
@@ -56,7 +56,7 @@ const trackListEpOne = [...Array(1)].map((disc, discNum) =>
 );
 
 const trackListEpTwo = [...Array(1)].map((disc, discNum) =>
-  [...Array(studioTrackNumber())].map((track, trackNum) => ({
+  [...Array(epTrackNumber())].map((track, trackNum) => ({
     _id: mongoose.Types.ObjectId(),
     album,
     albumId,
@@ -68,7 +68,7 @@ const trackListEpTwo = [...Array(1)].map((disc, discNum) =>
 );
 
 const trackListSingleOne = [...Array(1)].map((disc, discNum) =>
-  [...Array(studioTrackNumber())].map((track, trackNum) => ({
+  [...Array(singleTrackNumber())].map((track, trackNum) => ({
     _id: mongoose.Types.ObjectId(),
     album,
     albumId,
@@ -80,7 +80,7 @@ const trackListSingleOne = [...Array(1)].map((disc, discNum) =>
 );
 
 const trackListSingleTwo = [...Array(1)].map((disc, discNum) =>
-  [...Array(studioTrackNumber())].map((track, trackNum) => ({
+  [...Array(singleTrackNumber())].map((track, trackNum) => ({
     _id: mongoose.Types.ObjectId(),
     album,
     albumId,
