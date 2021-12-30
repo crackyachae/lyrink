@@ -35,6 +35,9 @@ const {
   insertReview,
 } = require('./fixtures/review.fixture');
 
+// 각 모델의 document를 저장할 변수 선언
+const albums = [albumStudio, albumEpOne, albumEpTwo, albumSingleOne, albumSingleTwo];
+
 async function clearData() {
   await Promise.all(
     Object.values(mongoose.connection.collections).map(async (collection) =>
@@ -44,7 +47,8 @@ async function clearData() {
 }
 
 async function createData() {
-  // TODO
+  // album 생성
+  await insertAlbums(albums);
 }
 
 async function populateSampleDB() {
