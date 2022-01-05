@@ -14,14 +14,14 @@ const {
   albumSingleOne,
   albumSingleTwo,
   insertAlbums,
-  setTracksInAlbum,
+  setTrackListInAlbum,
 } = require('./fixtures/album.fixture');
 const {
-  tracksStudio,
-  tracksEpOne,
-  tracksEpTwo,
-  tracksSingleOne,
-  tracksSingleTwo,
+  trackListStudio,
+  trackListEpOne,
+  trackListEpTwo,
+  trackListSingleOne,
+  trackListSingleTwo,
   insertTracks,
   setLyricsInTrack,
 } = require('./fixtures/track.fixture');
@@ -37,6 +37,13 @@ const {
 
 // 각 모델의 document를 저장할 변수 선언
 const albums = [albumStudio, albumEpOne, albumEpTwo, albumSingleOne, albumSingleTwo];
+const trackLists = [
+  trackListStudio,
+  trackListEpOne,
+  trackListEpTwo,
+  trackListSingleOne,
+  trackListSingleTwo,
+];
 
 async function clearData() {
   await Promise.all(
@@ -49,6 +56,20 @@ async function clearData() {
 async function createData() {
   // album 생성
   await insertAlbums(albums);
+
+  await Promise.all(
+    trackLists.map(async (trackList, index) => {
+      const album = albums[index];
+
+      // track 생성
+      await insertTracks(
+        trackList.reduce((prev, curr) => prev.concat(curr)),
+        album,
+      );
+      // album에 track 정보 업데이트
+      await setTrackListInAlbum(trackList, album);
+    }),
+  );
 }
 
 async function populateSampleDB() {

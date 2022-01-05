@@ -51,7 +51,10 @@ const insertAlbums = async (albums) => {
 };
 
 const setTrackListInAlbum = async (trackList, album) => {
-  Album.findByIdAndUpdate(album._id, { trackList });
+  const trackListInAlbum = trackList.map((tracks) =>
+    tracks.map((track) => ({ _id: track._id, title: track.title, artists: track.artists })),
+  );
+  await Album.findByIdAndUpdate(album._id, { trackList: trackListInAlbum });
 };
 
 module.exports = {

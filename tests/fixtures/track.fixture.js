@@ -93,9 +93,7 @@ const trackListSingleTwo = [...Array(1)].map((disc, discNum) =>
 
 const insertTracks = async (tracks, album) => {
   await Track.insertMany(
-    tracks.forEach((disc) =>
-      disc.map((track) => ({ ...track, album: album.title, albumId: album._id })),
-    ),
+    tracks.map((track) => ({ ...track, album: album.title, albumId: album._id })),
   );
 };
 

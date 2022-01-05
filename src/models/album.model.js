@@ -11,11 +11,6 @@ const trackSchema = mongoose.Schema({
    *  type: Number,
    *  required: [true, 'error message'],
    */
-  id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Track',
-    required: [true, 'track id required'],
-  },
   title: {
     type: String,
     required: [true, 'song title required'],
