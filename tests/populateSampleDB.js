@@ -68,6 +68,21 @@ async function createData() {
       );
       // album에 track 정보 업데이트
       await setTrackListInAlbum(trackList, album);
+
+      await Promise.all(
+        trackList
+          .reduce((prev, curr) => prev.concat(curr))
+          .map(async (track) => {
+            // lyric 생성
+            const lyrics = createLyrics();
+            await insertLyrics(
+              lyrics.reduce((prev, curr) => prev.concat(curr)),
+              track,
+            );
+            // track에 lyric 정보 업데이트
+            await setLyricsInTrack(lyrics, track);
+          }),
+      );
     }),
   );
 }

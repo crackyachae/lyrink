@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const lyricSchema = mongoose.Schema({
-  id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Lyric',
-    required: [true, 'lyric id required'],
-  },
   text: {
     type: String,
     required: [true, 'lyric text required'],

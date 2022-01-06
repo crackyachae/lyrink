@@ -98,7 +98,10 @@ const insertTracks = async (tracks, album) => {
 };
 
 const setLyricsInTrack = async (lyrics, track) => {
-  Track.findByIdAndUpdate(track._id, { lyrics });
+  const lyricsInAlbum = lyrics.map((lyricLine) =>
+    lyricLine.map((lyricWord) => ({ _id: lyricWord._id, text: lyricWord.text })),
+  );
+  await Track.findByIdAndUpdate(track._id, { lyrics: lyricsInAlbum });
 };
 
 module.exports = {
