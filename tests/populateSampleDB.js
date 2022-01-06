@@ -44,6 +44,7 @@ const trackLists = [
   trackListSingleOne,
   trackListSingleTwo,
 ];
+const users = [userOne, userTwo, admin];
 
 async function clearData() {
   await Promise.all(
@@ -85,6 +86,9 @@ async function createData() {
       );
     }),
   );
+
+  // user 생성
+  await insertUsers(users);
 }
 
 async function populateSampleDB() {
