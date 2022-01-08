@@ -4,9 +4,8 @@ const config = require('../src/config/config');
 const logger = require('../src/config/logger');
 
 // 필요한 모듈 불러오기
-const { User, Album, Track, Lyric, Review } = require('../src/models');
+const { Track } = require('../src/models');
 const { userOne, userTwo, admin, insertUsers } = require('./fixtures/user.fixture');
-const { userOneAccessToken, adminAccessToken } = require('./fixtures/token.fixture');
 const {
   albumStudio,
   albumEpOne,
