@@ -120,8 +120,9 @@ async function populateSampleDB() {
   });
 
   mongoose.Promise = global.Promise;
-  const db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+  mongoose.connection.on('error', (error) => {
+    logger.error(error);
+  });
 
   await clearData();
   await createData();
