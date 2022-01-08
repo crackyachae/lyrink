@@ -25,7 +25,10 @@ const insertLyrics = async (lyricWords, track) => {
 };
 
 const appendReview = async (review, lyric) => {
-  Lyric.findByIdAndUpdate(lyric._id, { reviewList: lyric.reviewList.append(review) });
+  // console.log(lyric._id);
+  await Lyric.findByIdAndUpdate(lyric._id, {
+    $push: { reviewList: review._id },
+  });
 };
 
 module.exports = {

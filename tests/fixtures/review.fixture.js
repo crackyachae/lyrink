@@ -50,10 +50,8 @@ const reviewFive = {
   trackId,
 };
 
-const insertReview = async (reviews, user, track) => {
-  await Review.insertMany(
-    reviews.map((review) => ({ ...review, writer: user._id, trackId: track._id })),
-  );
+const insertReview = async (review, user, track) => {
+  await Review.create({ ...review, writer: user._id, trackId: track._id });
 };
 
 module.exports = {

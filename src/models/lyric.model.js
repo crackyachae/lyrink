@@ -1,12 +1,6 @@
 const mongoose = require('mongoose');
 
-const reviewSchema = mongoose.Schema({
-  id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Review',
-    required: [true, 'review id required'],
-  },
-});
+// const reviewSchema = mongoose.Schema({});
 
 const lyricSchema = mongoose.Schema({
   text: {
@@ -18,7 +12,7 @@ const lyricSchema = mongoose.Schema({
     required: [true, 'have to specify the track id it belongs to'],
   },
   reviewList: {
-    type: [reviewSchema],
+    type: [mongoose.Schema.Types.ObjectId],
   },
 });
 

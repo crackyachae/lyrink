@@ -45,6 +45,13 @@ const trackLists = [
   trackListSingleTwo,
 ];
 const users = [userOne, userTwo, admin];
+const reviewInfos = [
+  { review: reviewOne, user: userOne, track: trackListStudio[0][0] },
+  { review: reviewTwo, user: userOne, track: trackListStudio[0][0] },
+  { review: reviewThree, user: userOne, track: trackListStudio[0][5] },
+  { review: reviewFour, user: userTwo, track: trackListStudio[0][5] },
+  { review: reviewFive, user: userTwo, track: trackListEpOne[0][2] },
+];
 
 async function clearData() {
   await Promise.all(
@@ -89,6 +96,19 @@ async function createData() {
 
   // user 생성
   await insertUsers(users);
+
+  // review 생성
+  await Promise.all(
+    reviewInfos.map(async (reviewInfo) => {
+      const { review, user, track } = reviewInfo;
+
+      await insertReview(review, user, track);
+      const foundTrack = await Track.findById(track._id);
+      const line = Math.floor(Math.random() * foundTrack.lyrics.length);
+      const word = Math.floor(Math.random() * foundTrack.lyrics[line].length);
+      await appendReview(review, foundTrack.lyrics[line][word]);
+    }),
+  );
 }
 
 async function populateSampleDB() {
