@@ -1,6 +1,10 @@
 const express = require('express');
 const authRoute = require('./auth.route');
 const userRoute = require('./user.route');
+const albumRoute = require('./album.route');
+const trackRoute = require('./track.route');
+const lyricRoute = require('./lyric.route');
+const reviewRoute = require('./review.route');
 const docsRoute = require('./docs.route');
 const config = require('../../config/config');
 
@@ -14,6 +18,22 @@ const defaultRoutes = [
   {
     path: '/users',
     route: userRoute,
+  },
+  {
+    path: '/album',
+    route: albumRoute,
+  },
+  {
+    path: '/track',
+    route: trackRoute,
+  },
+  {
+    path: '/lyric',
+    route: lyricRoute,
+  },
+  {
+    path: '/review',
+    route: reviewRoute,
   },
 ];
 
