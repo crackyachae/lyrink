@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const helmet = require('helmet');
 const xss = require('xss-clean');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -63,5 +64,9 @@ app.use(errorConverter);
 
 // handle error
 app.use(errorHandler);
+
+// view engine
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
 module.exports = app;
