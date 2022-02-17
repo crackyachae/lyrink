@@ -1,0 +1,64 @@
+header
+  //- @@classList 뭐지
+  nav(class="navbar navbar-expand-xl navbar-light")
+    div(class="container")
+
+      // Brand
+      //- Home 링크 나중에 수정해야 하면 수정
+      a(class="navbar-brand d-xl-none" href="/v1")= siteTitle
+
+      // Toggler
+      button(class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-controls="navbar-menu navbar-search-account" aria-expanded="false" aria-label="Toggle navigation")
+        span(class="navbar-toggler-icon")
+
+      // Collapse (wide main)
+      div(class="navbar-collapse collapse multi-collapse" id="navbar-menu" style="")
+
+        // Menu
+        //- About, Contact 만들기 전까지는 메뉴 숨겨놓기
+        ul(class="navbar-nav")
+          li(class="nav-item")
+            a(class="nav-link" href="/v1") Home
+          li(class="nav-item")
+            a(class="nav-link" href="/v1/about") About
+          li(class="nav-item")
+            a(class="nav-link" href="/v1/contact") Contact
+
+        hr(class="d-xl-none")
+
+      // Brand
+      //- Home 링크 나중에 수정해야 하면 수정
+      a(class="navbar-brand mx-auto d-none d-xl-block" href="/v1")= siteTitle
+
+      // Search & Account
+      div(class="navbar-collapse collapse multi-collapse" id="navbar-search-account" style="")
+        // Account (under xl)
+        ul(class="navbar-nav d-xl-none")
+          li(class="nav-item")
+            a(class="nav-link" href="#") Settings
+          li(class="nav-item")
+            a(class="nav-link" href="#") Profile
+          li(class="nav-item")
+            a(class="nav-link" href="#") Sign out
+
+        hr(class="d-xl-none")
+
+        // Search
+        //- title: search box 확장됐을 때 나타날 메시지 수정하기
+        form(class="form-inline ms-auto" role="search")
+          input(class="search js-search form-control form-control-rounded me-sm-2" type="text" title="Enter search query here.." placeholder="Search" aria-label="Search")
+
+        // Account
+        div(class="dropdown text-end d-none d-xl-block")
+          a(href="#" class="d-block ms-2 link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false")
+            //- 임시 프로필 이미지
+            img(src="/images/profile.jpg" alt="profile" width="32" height="32" class="rounded-circle")
+          ul(class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="")
+            li
+              a(class="dropdown-item" href="#") Settings
+            li
+              a(class="dropdown-item" href="#") Profile
+            li
+              hr(class="dropdown-divider")
+            li
+              a(class="dropdown-item" href="#") Sign out

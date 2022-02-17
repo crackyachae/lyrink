@@ -1,0 +1,22 @@
+html,
+body {
+  height: 100vh;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+.hero {
+  min-height: 70vh;
+}
+
+footer {
+  text-align: center;
+  color: grey;
+  font-size: 0.875em;
+}
+
+footer p {
+  margin: 0;
+}

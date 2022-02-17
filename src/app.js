@@ -17,13 +17,33 @@ const ApiError = require('./utils/ApiError');
 
 const app = express();
 
+// static source
+app.use(express.static(path.join(__dirname, 'public')));
+
 if (config.env !== 'test') {
   app.use(morgan.successHandler);
   app.use(morgan.errorHandler);
 }
 
+// custom option for Helmet
+const cspOptions = {
+  directives: {
+    // get default options
+    ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+
+    // jsdelivr cdn과 관련된 스크립트를 허용
+    'script-src': ["'self'", 'https://cdn.jsdelivr.net'],
+    // 사이트의 이미지 소스를 허용
+    'img-src': ["'self'", 'data:'],
+  },
+};
+
 // set security HTTP headers
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: cspOptions,
+  }),
+);
 
 // parse json request body
 app.use(express.json());
