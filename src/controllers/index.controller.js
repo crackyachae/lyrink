@@ -1,5 +1,5 @@
 const getHomePage = (req, res) => {
-  res.send('not implemented: Site homepage');
+  res.render('index');
 };
 
 module.exports = {

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  section(class="hero text-center py-5 d-flex flex-column justify-content-center")
+    div(class="container")
+      // Heading
+      h1(class="mb-4")= siteTitle
+      // Text
+      p(class="mb-4")= siteSummary
+      // buttons
+      div(class="d-flex justify-content-center")
+        //- [TODO] 페이지 만든 후 링크 수정
+        a(class="btn btn-primary" href="#" role="button") 곡 목록 살펴보기
+        a(class="btn btn-outline-primary ms-3" href="#" role="button") 사용방법
+
