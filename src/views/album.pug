@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  ul(class="album-list")
+    each album in albums
+      li(class="album")
+        //- img(class="album-art") [TODO]: 이미지 관리할 방법 공부해서 추가하기
+        h3(class="album-title")= album.title
+        span(class="album-type")= album.type
+        //- [TODO]: 아티스트 여러명일 때 테스트 해봐야 함
+        span(class="album-artists")= album.artists
+        //- [TODO]: 표시 형식 다듬기 YYYY.MM.DD
+        span(class="album-date")= album.releaseDate
+
+        //- [TODO]: 이거 테이블로 바꾸기
+        div(class="track-list")
+          each disc, index in album.trackList
+            if album.trackList.length > 1
+              h4(class="disc-num")= `디스크 ${index + 1}`
+            ul(class="disc")
+              each track, index in disc
+                li(class="track")
+                  span(class="track-num")= index + 1
+                  span(class="track-title")= track.title
+                    //- a(class="track-title-link") [TODO]: 곡 상세 페이지 만들고 링크 생성해서 추가
+                  span(class="track-artists")= track.artists
+                  //- span(class="review-count)
