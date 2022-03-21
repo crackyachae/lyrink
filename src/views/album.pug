@@ -10,7 +10,7 @@ block content
         //- [TODO]: 아티스트 여러명일 때 테스트 해봐야 함
         span(class="album-artists")= album.artists
         //- [TODO]: 표시 형식 다듬기 YYYY.MM.DD
-        span(class="album-date")= album.releaseDate
+        span(class="album-date")= album.releaseDateFormatted
 
         //- [TODO]: 이거 테이블로 바꾸기
         div(class="track-list")

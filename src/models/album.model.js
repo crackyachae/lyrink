@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { DateTime } = require('luxon');
 
 const trackSchema = mongoose.Schema({
   /*
@@ -47,6 +48,10 @@ const albumSchema = mongoose.Schema({
     default: ['Unknown'],
   },
   trackList: [[trackSchema]], // [discNum - 1][trackNum - 1]
+});
+
+albumSchema.virtual('releaseDateFormatted').get(function () {
+  return DateTime.fromJSDate(this.releaseDate).toFormat('yyyy.MM.dd');
 });
 
 albumSchema.virtual('url').get(function () {
