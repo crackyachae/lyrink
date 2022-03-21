@@ -50,6 +50,10 @@ const albumSchema = mongoose.Schema({
   trackList: [[trackSchema]], // [discNum - 1][trackNum - 1]
 });
 
+albumSchema.virtual('releaseDateYear').get(function () {
+  return DateTime.fromJSDate(this.releaseDate).toFormat('yyyy');
+});
+
 albumSchema.virtual('releaseDateFormatted').get(function () {
   return DateTime.fromJSDate(this.releaseDate).toFormat('yyyy.MM.dd');
 });

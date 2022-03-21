@@ -1,6 +1,19 @@
 extends layout
 
 block content
+  div(class="filter")
+    h4="앨범유형"
+    div
+      each albumType in typeFilters
+        button=albumType
+
+    h4="발매연도"
+    div
+      each releaseYear in yearFilters 
+        button=releaseYear
+    //- button(class="sort-increase")
+    //- button(class="sort-decrease")
+
   ul(class="album-list")
     each album in albums
       li(class="album")

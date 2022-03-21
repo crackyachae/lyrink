@@ -20,7 +20,25 @@ const queryAlbums = async (filter, options) => {
   return albums;
 };
 
+/**
+ * Get album filters from queried albums data
+ * @param {QueryResult} albums - Mongo Query
+ * @returns {Object}
+ */
+const getAlbumFilters = (albums) => {
+  const typeFilters = new Set();
+  const yearFilters = new Set();
+
+  albums.forEach((album) => {
+    typeFilters.add(album.type);
+    yearFilters.add(album.releaseDateYear);
+  });
+
+  return [[...typeFilters], [...yearFilters].sort((a, b) => a - b)];
+};
+
 module.exports = {
   createAlbum,
   queryAlbums,
+  getAlbumFilters,
 };
