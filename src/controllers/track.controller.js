@@ -1,5 +1,11 @@
-const getTrack = (req, res) => {
-  res.send(`not implemented: Track detail: ${req.params.id}`);
+const { trackService } = require('../services');
+
+const getTrack = async (req, res) => {
+  const { trackId: id } = req.params;
+  const option = {};
+  const track = await trackService.queryTrack(id, option);
+
+  res.render('track', { track });
 };
 
 const createTrack = (req, res) => {

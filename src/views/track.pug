@@ -1,0 +1,19 @@
+extends layout
+
+//- [TODO] Modal contents
+  - var modalTitle = ""
+  - var modalDesc = "감상을 작성하시겠습니까?"
+  - var confirm = "작성"
+  - var cancel = "취소"
+
+block content
+  //- include modal 
+  //- button(class="all-one-toggle") [TODO] 내 감상만 / 전체 감상 표시 토글하는 버튼
+
+  h3(class="track-title")= track.title
+  div(class="lyric")
+    each line in track.lyrics
+      p
+        each word in line
+          span= word.text
+

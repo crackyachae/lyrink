@@ -9,6 +9,12 @@ const createTrack = async (trackBody) => {
   return Track.create(trackBody);
 };
 
+const queryTrack = async (id) => {
+  const track = await Track.findById(id);
+  return track;
+};
+
 module.exports = {
   createTrack,
+  queryTrack,
 };
