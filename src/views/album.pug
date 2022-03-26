@@ -33,7 +33,7 @@ block content
               each track, index in disc
                 li(class="track")
                   span(class="track-num")= index + 1
-                  span(class="track-title")= track.title
-                    //- a(class="track-title-link") [TODO]: 곡 상세 페이지 만들고 링크 생성해서 추가
+                  a(class="track-title-link" href=`${track.url}`)
+                    span(class="track-title")= track.title
                   span(class="track-artists")= track.artists
                   //- span(class="review-count)

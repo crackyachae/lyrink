@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const { DateTime } = require('luxon');
 
+const API_VERSION = 'v1';
+
 const trackSchema = mongoose.Schema({
   /*
    *discNum: {
@@ -22,6 +24,10 @@ const trackSchema = mongoose.Schema({
     required: [true, 'song artists required'],
     default: ['Unknown'],
   },
+});
+
+trackSchema.virtual('url').get(function () {
+  return `/${API_VERSION}/track/${this._id}`;
 });
 
 const albumSchema = mongoose.Schema({
