@@ -65,7 +65,7 @@ albumSchema.virtual('releaseDateFormatted').get(function () {
 });
 
 albumSchema.virtual('url').get(function () {
-  return `/album/${this._id}`;
+  return `/${API_VERSION}/album/${this._id}`;
 });
 
 /**

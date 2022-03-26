@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const API_VERSION = 'v1';
+
 // const reviewSchema = mongoose.Schema({});
 
 const lyricSchema = mongoose.Schema({
@@ -17,7 +19,7 @@ const lyricSchema = mongoose.Schema({
 });
 
 lyricSchema.virtual('url').get(function () {
-  return `/lyric/${this._id}`;
+  return `/${API_VERSION}/lyric/${this._id}`;
 });
 
 /**

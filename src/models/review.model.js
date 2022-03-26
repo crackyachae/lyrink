@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const API_VERSION = 'v1';
+
 const reviewSchema = mongoose.Schema({
   createdDate: {
     type: Date,
@@ -27,7 +29,7 @@ const reviewSchema = mongoose.Schema({
 });
 
 reviewSchema.virtual('url').get(function () {
-  return `/review/${this._id}`;
+  return `/${API_VERSION}/review/${this._id}`;
 });
 
 /**

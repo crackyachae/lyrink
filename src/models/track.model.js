@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const API_VERSION = 'v1';
+
 const lyricSchema = mongoose.Schema({
   text: {
     type: String,
@@ -38,7 +40,7 @@ const trackSchema = mongoose.Schema({
 });
 
 trackSchema.virtual('url').get(function () {
-  return `/track/${this._id}`;
+  return `${API_VERSION}/track/${this._id}`;
 });
 
 /**
