@@ -40,7 +40,7 @@ const trackSchema = mongoose.Schema({
 });
 
 trackSchema.virtual('url').get(function () {
-  return `${API_VERSION}/track/${this._id}`;
+  return `/${API_VERSION}/track/${this._id}`;
 });
 
 /**
