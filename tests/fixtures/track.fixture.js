@@ -26,7 +26,7 @@ const lyricSchema = mongoose.Schema({
 });
 */
 
-const studioDiscNumber = () => 1 + Math.floor(Math.random());
+const studioDiscNumber = () => 1 + Math.floor(Math.random() * 2);
 const studioTrackNumber = () => 8 + Math.floor(Math.random() * 5);
 const epTrackNumber = () => 4 + Math.floor(Math.random() * 3);
 const singleTrackNumber = () => 1 + Math.floor(Math.random() * 3);
@@ -104,6 +104,19 @@ const setLyricsInTrack = async (lyrics, track) => {
   await Track.findByIdAndUpdate(track._id, { lyrics: lyricsInAlbum });
 };
 
+const increaseReviewCount = async (track, line, word) => {
+  track.lyrics[line][word].reviewCount += 1;
+  await track.save();
+
+  /* Error: Base SchemaType class does not implement a `cast()` function
+  await Track.updateOne(
+    { _id: track._id },
+    { $set: { 'lyrics.$.$[word].reviewCount': lyric.reviewCount + 1 } },
+    { arrayFilters: [{ 'word._id': lyric._id }] },
+  );
+  */
+};
+
 module.exports = {
   trackListStudio,
   trackListEpOne,
@@ -112,4 +125,5 @@ module.exports = {
   trackListSingleTwo,
   insertTracks,
   setLyricsInTrack,
+  increaseReviewCount,
 };

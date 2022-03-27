@@ -23,6 +23,7 @@ const {
   trackListSingleTwo,
   insertTracks,
   setLyricsInTrack,
+  increaseReviewCount,
 } = require('./fixtures/track.fixture');
 const { createLyrics, insertLyrics, appendReview } = require('./fixtures/lyric.fixture');
 const {
@@ -105,7 +106,10 @@ async function createData() {
       const foundTrack = await Track.findById(track._id);
       const line = Math.floor(Math.random() * foundTrack.lyrics.length);
       const word = Math.floor(Math.random() * foundTrack.lyrics[line].length);
-      await appendReview(review, foundTrack.lyrics[line][word]);
+      const lyric = foundTrack.lyrics[line][word];
+
+      await appendReview(review, lyric);
+      await increaseReviewCount(foundTrack, line, word);
     }),
   );
 }
