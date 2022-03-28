@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  //- modal
+    - var modalTitle = ""
+    - var modalBody = "감상을 수정/삭제하시겠습니까?"
+    - var modalConfirmLabel= "수정/삭제"
+    - var modalCloseLabel= "취소"
+
+  //- include includes/modal.pug
+
+  - var noReviewMessage = `${lyric.text}에 대한 감상이 아직 없습니다. 감상을 작성하시겠습니까?`
+
+  //- button(class="recent-popular-toggle") [TODO] 최신순 / 인기순 표시 토글하는 버튼, 호감 표시 도입했을 때
+
+  if lyric.reviewList.length
+    //- [TODO] 가사 미니맵 or linked to
+
+    h3(class="lyric-title")= `${lyric.text}에 대한 감상입니다.`
+    div(class="review-list")
+      each review in lyric.reviewList
+        //- 해당 감상의 작성자인 경우
+          button(class="delete") 삭제 - 삭제 모달로 연결
+          button(class="edit") 수정 - 수정 모달로 연결
+
+        span(class="writer")= review.writer.name
+        span(class="created-date")= `작성일: ${review.createdDateFormatted}`
+        span(class="updated-date")= `최종 수정일: ${review.updatedDateFormatted}`
+        p(class="content")= review.content
+
+      //- [TODO] 더보기 구현 (무한 스크롤)
+  else
+    div(class="no-review container")
+      // Text
+      p(class="mb-4")= noReviewMessage
+      // buttons
+      div(class="d-flex justify-content-center")
+        a(class="btn btn-primary" href="#" role="button") 작성하기
+        a(class="btn btn-outline-primary ms-3" href="#" role="button") 홈으로

@@ -13,9 +13,12 @@ const lyricSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: [true, 'have to specify the track id it belongs to'],
   },
-  reviewList: {
-    type: [mongoose.Schema.Types.ObjectId],
-  },
+  reviewList: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Review',
+    },
+  ],
 });
 
 lyricSchema.virtual('url').get(function () {

@@ -1,5 +1,11 @@
-const getLyric = (req, res) => {
-  res.send(`not implemented: Lyric detail: ${req.params.id}`);
+const { lyricService } = require('../services');
+
+const getLyric = async (req, res) => {
+  const { lyricId: id } = req.params;
+  const option = {};
+  const lyric = await lyricService.queryLyric(id, option);
+
+  res.render(`lyric`, { lyric });
 };
 
 const createLyric = (req, res) => {
