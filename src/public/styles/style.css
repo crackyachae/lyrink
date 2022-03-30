@@ -11,6 +11,14 @@ body {
   min-height: 70vh;
 }
 
+.modal-opener:hover {
+  cursor: pointer;
+}
+
+.modal {
+  background: rgba(0, 0, 0, 0.5);
+}
+
 /* [TODO] carscading 고려해서 다시 작성하기 */
 .table > :not(:first-child) {
   border-top: inherit !important;

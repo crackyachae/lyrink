@@ -2,12 +2,8 @@ extends layout
 
 block content
   //- modal to confirm review creation
-  - var modalTitle = ""
-  - var modalBody = "감상을 작성하시겠습니까?"
-  - var modalConfirmLabel= "작성"
-  - var modalCloseLabel= "취소"
-
   include includes/modal.pug
+  +modal(writeModal)
 
   //- button(type="button" class="all-one-toggle") [TODO] 내 감상만 / 전체 감상 표시 토글하는 버튼
 
@@ -22,5 +18,4 @@ block content
                 //- [TODO] reviewed 단어 hightlight 하기
                 a(class="lyric-word reviewed me-2" href=`${word.url}`)= word.text
               else
-                span(class="lyric-word me-2")= word.text
-
+                span(class="lyric-word modal-opener me-2" data-bs-toggle="modal" data-bs-target=`#writeModal`)= word.text
