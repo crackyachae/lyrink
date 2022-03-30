@@ -9,12 +9,18 @@ block content
 
   include includes/modal.pug
 
-  //- button(class="all-one-toggle") [TODO] 내 감상만 / 전체 감상 표시 토글하는 버튼
+  //- button(type="button" class="all-one-toggle") [TODO] 내 감상만 / 전체 감상 표시 토글하는 버튼
 
-  h3(class="track-title")= track.title
-  div(class="lyric")
-    each line in track.lyrics
-      p
-        each word in line
-          span= word.text
+  section(class="track my-5")
+    div(class="container")
+      h3(class="track-title border-bottom pb-4 mb-4")= track.title
+      div(class="lyric my-4")
+        each line in track.lyrics
+          p
+            each word in line
+              if word.reviewCount
+                //- [TODO] reviewed 단어 hightlight 하기
+                a(class="lyric-word reviewed me-2" href=`${word.url}`)= word.text
+              else
+                span(class="lyric-word me-2")= word.text
 

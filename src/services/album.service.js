@@ -35,7 +35,7 @@ const getAlbumFilters = (albums) => {
   });
 
   // [TODO] type 필터도 priority 지정해서 항상 일관된 순서로 유지될 수 있게
-  return [[...typeFilters], [...yearFilters].sort((a, b) => a - b)];
+  return { 앨범유형: [...typeFilters], 발매연도: [...yearFilters].sort((a, b) => a - b) };
 };
 
 module.exports = {

@@ -1,39 +1,47 @@
 extends layout
 
 block content
-  div(class="filter")
-    h4="앨범유형"
-    div
-      each albumType in typeFilters
-        button=albumType
+  section(class="filter my-5")
+    div(class="container")
+      each filter, filterType in filters
+        div(class="filter-type mb-3")
+          h4= filterType
+          div(class="d-flex justify-content-start flex-wrap")
+            each elem in filter
+              button(type="button" class="me-2 btn btn-outline-secondary")= elem
 
-    h4="발매연도"
-    div
-      each releaseYear in yearFilters 
-        button=releaseYear
-    //- button(class="sort-increase")
-    //- button(class="sort-decrease")
+    //- button(type="button" class="sort-increase")
+    //- button(type="button" class="sort-decrease")
 
-  ul(class="album-list")
-    each album in albums
-      li(class="album")
-        //- img(class="album-art") [TODO]: 이미지 관리할 방법 공부해서 추가하기
-        h3(class="album-title")= album.title
-        span(class="album-type")= album.type
-        //- [TODO]: 아티스트 여러명일 때 테스트 해봐야 함
-        span(class="album-artists")= album.artists
-        span(class="album-date")= album.releaseDateFormatted
+  section(class="album-list my-5")
+    div(class="container")
+      each album in albums
+        div(class="album mb-5")
+          //- img(class="album-art") [TODO]: 이미지 관리할 방법 공부해서 추가하기
+          div(class="album-info border-bottom pb-3 mb-2")
+            h3(class="album-title")= album.title
+            span(class="album-type me-2")= album.type
+            span(class="album-date me-2")= album.releaseDateFormatted
+            | |
+            //- [TODO]: 아티스트 여러명일 때 테스트 해봐야 함
+            span(class="album-artists ms-2")= album.artists
 
-        //- [TODO]: 이거 테이블로 바꾸기
-        div(class="track-list")
-          each disc, index in album.trackList
-            if album.trackList.length > 1
-              h4(class="disc-num")= `디스크 ${index + 1}`
-            ul(class="disc")
-              each track, index in disc
-                li(class="track")
-                  span(class="track-num")= index + 1
-                  a(class="track-title-link" href=`${track.url}`)
-                    span(class="track-title")= track.title
-                  span(class="track-artists")= track.artists
-                  //- span(class="review-count)
+          - var isMultiDisc = 0
+          if album.trackList.length > 1
+            - isMultiDisc = 1
+
+          table(class="track-list table")
+            each disc, discIndex in album.trackList
+              tbody(class="disc")
+                //- [Error]: 태그는 tbody 안에 잘 생성 되는데 내용이 table 밖에서 먼저 반복되어 출력된다.
+                  if isMultiDisc
+                    tr(class="disc-num")= `디스크 ${discIndex + 1}`
+                each track, index in disc
+                  tr(class="track")
+                    td(class="track-num align-middle")= index + 1
+                    td(class="align-middle")
+                      a(class="track-title" href=`${track.url}`)= track.title
+                      br
+                      span(class="track-artists")= track.artists
+                    //- td(class="review-count align middle")
+

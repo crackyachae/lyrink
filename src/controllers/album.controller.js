@@ -6,9 +6,9 @@ const getAlbums = async (req, res) => {
   const option = {};
   const albums = await albumService.queryAlbums(filter, option);
 
-  const [typeFilters, yearFilters] = albumService.getAlbumFilters(albums);
+  const filters = albumService.getAlbumFilters(albums);
 
-  res.render('album', { albums, typeFilters, yearFilters });
+  res.render('album', { albums, filters });
 };
 
 const getAlbum = (req, res) => {
