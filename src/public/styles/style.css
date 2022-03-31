@@ -1,3 +1,4 @@
+/* layout */
 html,
 body {
   height: 100vh;
@@ -11,6 +12,22 @@ body {
   min-height: 70vh;
 }
 
+footer {
+  text-align: center;
+  color: grey;
+  font-size: 0.875em;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* component*/
+button:focus {
+  box-shadow: none !important;
+}
+
+/* modal */
 .modal-opener:hover {
   cursor: pointer;
 }
@@ -22,14 +39,4 @@ body {
 /* [TODO] carscading 고려해서 다시 작성하기 */
 .table > :not(:first-child) {
   border-top: inherit !important;
-}
-
-footer {
-  text-align: center;
-  color: grey;
-  font-size: 0.875em;
-}
-
-footer p {
-  margin: 0;
 }

@@ -8,7 +8,7 @@ block content
           h4= filterType
           div(class="d-flex justify-content-start flex-wrap")
             each elem in filter
-              button(type="button" class="me-2 btn btn-outline-secondary")= elem
+              button(type="button" class="filter-btn me-2 btn btn-secondary" data-type=`${filterType}` data-state="on")= elem
 
     //- button(type="button" class="sort-increase")
     //- button(type="button" class="sort-decrease")
@@ -44,4 +44,6 @@ block content
                       br
                       span(class="track-artists")= track.artists
                     //- td(class="review-count align middle")
+
+  script(src="/js/filter.js")
 
