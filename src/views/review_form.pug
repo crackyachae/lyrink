@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  section(class="review-write my-5")
+    div(class="container")
+      form(class="row g-2" method="post" action="")
+        // 곡 정보
+        div(class="form-group col-md-4")
+          label(for="album" class="form-label") 앨범
+          input(type="text" class ="form-control" id="name" placeholder="" name="name" required="true")
+        div(class="form-group col-md-4")
+          label(for="track" class="form-label") 트랙
+          input(type="text" class="form-control" id="track" placeholder="" name="track" required="true")
+        div(class="form-group col-md-4")
+          label(for="lyric" class="form-label") 가사
+          input(type="text" class="form-control" id="lyric" placeholder="" name="lyric" required="true")
+
+        // 작성자 정보
+        div(class="form-group col-md-6")
+          label(for="name" class="form-label") 작성자
+          input(type="text" class="form-control" id="name" placeholder="" name="name" required="true")
+        div(class="form-group col-md-6")
+          label(for="password" class="form-label") 비밀번호
+          input(type="text" class="form-control" id="password" placeholder="" name="password" required="true")
+
+        // 내용
+        div(class="form-group mb-3")
+          label(for="content" class="form-label") 내용
+          textarea(class="form-control" id="content" placeholder="" name="content" required="true")
+        
+        div(class="col-12")
+          button(class="submit btn btn-primary" type="submit") 작성
+
+    //- [TODO] 페이지 벗어날 때 작성을 취소하시겠습니까? 팝업 띄울 수 있게
+    //- [TODO] 작성 취소 버튼 필요할지 고민
+
+//-
+  * 익명 (for anonymous)
+      * 이름 (name)
+      * 암호 (password)
+  * 앨범 (album): 텍스트 인풋
+      * 클릭하면 일단 순차적으로 목록을 모두 띄우고
+      * 입력하면 입력 문자와 일치하는 것만 필터링 해서 표시 (띄어쓰기 구분 x)
+      * 아래 리스트에서 선택 (클릭하거나, 이동해서 엔터)
+  * 곡 (song): 텍스트 인풋
+  * 가사 (lyrics): dropdown 말고 타이핑 하면 문자열 검색해서 띄워주는 게 나을 듯
+  * 내용 (content)
+  * 제출 (submit): button (완료, 등록, 작성 / 수정)

@@ -1,3 +1,5 @@
+const { reviewService } = require('../services');
+
 const getReview = (req, res) => {
   res.send(`not implemented: Review detail: ${req.params.id}`);
 };
@@ -15,7 +17,7 @@ const deleteReview = (req, res) => {
 };
 
 const getReviewCreateForm = (req, res) => {
-  res.send('not implemented: Review creation form');
+  res.render('review_form', {});
 };
 
 const getReviewEditForm = (req, res) => {

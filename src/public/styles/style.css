@@ -40,3 +40,7 @@ button:focus {
 .table > :not(:first-child) {
   border-top: inherit !important;
 }
+
+textarea {
+  height: 240px;
+}
