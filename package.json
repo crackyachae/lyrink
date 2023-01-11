@@ -1,6 +1,17 @@
 {
-  "name": "next-js-boilerplate",
-  "version": "3.6.0",
+  "name": "lyrink",
+  "version": "0.1.0",
+  "description": "A music review system focusing on the links between lyrics.",
+  "repository": "https://github.com/crackyachae/lyrink.git",
+  "author": {
+    "name": "Crackyachae",
+    "email": "crackyachae@gmail.com",
+    "url": "https://github.com/crackyachae"
+  },
+  "homepage": "https://github.com/crackyachae/lyrink#readme",
+  "bugs": {
+    "url": "https://github.com/crackyachae/lyrink/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -103,6 +114,5 @@
       "@semantic-release/git",
       "@semantic-release/github"
     ]
-  },
-  "author": "Ixartz (https://github.com/ixartz)"
+  }
 }
