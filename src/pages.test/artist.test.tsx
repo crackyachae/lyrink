@@ -13,6 +13,7 @@ describe('GIVEN Artist page', () => {
     render(<ArtistPage albums={albums} />);
 
     it('should have all album in list', () => {
+      // TODO: should change query
       const albumList = screen.getAllByText(/앨범명/);
       expect(albumList).toHaveLength(albums.length);
     });
