@@ -1,5 +1,6 @@
 /* eslint-disable unused-imports/no-unused-vars */
 import type { Album } from '@/@types/album';
+import { AlbumTypeMap } from '@/components/constants';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
@@ -12,11 +13,29 @@ const Artist = ({ albums }: { albums: Album[] }) => (
     {/* 앨범 데이터가 제대로 넘어왔으면 앨범 목록을 띄운다. */}
     <section>
       {albums.map((album) => {
-        const { id, title } = album;
+        const { id, title, coverImg, albumType, releaseDate, artists, songs } =
+          album;
 
         return (
           <div key={id}>
-            <h3>{`앨범명: ${title}`}</h3>
+            <img src={coverImg} alt={`앨범 ${title}의 커버 이미지 입니다.`} />
+            <div>
+              <h3>{`앨범명: ${title}`}</h3>
+              <span>{AlbumTypeMap[albumType]}</span>
+              <span>{releaseDate}</span>| |<span>{artists}</span>
+            </div>
+            <table>
+              {songs.map((disc, discIdx) => (
+                <tbody key={discIdx}>
+                  {disc.map((track, trackIdx) => (
+                    <tr key={trackIdx}>
+                      <td>{trackIdx + 1}</td>
+                      <td>{track.title}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              ))}
+            </table>
           </div>
         );
       })}
