@@ -9,8 +9,8 @@ import { EpOne, SingleOne, StudioOne, StudioTwo } from './album.fixture';
 // The mock has been moved to `__mocks__` folder to avoid duplication
 
 describe('GIVEN Artist page', () => {
-  describe('WHEN: valid album data has passed', () => {
-    it('should have all album in list', () => {
+  describe('WHEN valid album data has passed', () => {
+    it('THEN it should have all album in list', () => {
       // TODO: should change query
       const albums = [EpOne, SingleOne, StudioOne, StudioTwo];
       render(<ArtistPage albums={albums} />);
@@ -19,7 +19,7 @@ describe('GIVEN Artist page', () => {
       expect(albumList).toHaveLength(albums.length);
     });
 
-    it('should have album information', () => {
+    it('THEN it should have album information', () => {
       const album = StudioTwo;
       render(<ArtistPage albums={[album]} />);
 
