@@ -12,7 +12,7 @@ const Artist = ({ albums }: { albums: Album[] }) => (
     {/* 앨범 데이터가 제대로 넘어왔으면 앨범 목록을 띄운다. */}
     <section>
       {albums.map((album) => {
-        const { _id: id, title } = album;
+        const { id, title } = album;
 
         return (
           <div key={id}>
