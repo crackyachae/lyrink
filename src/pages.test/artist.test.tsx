@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
+import { AlbumTypeMap } from '@/components/constants';
 import ArtistPage from '@/pages/artist';
 
 import { EpOne, SingleOne, StudioOne, StudioTwo } from './album.fixture';
@@ -16,6 +17,30 @@ describe('GIVEN Artist page', () => {
 
       const albumList = screen.getAllByText(/앨범명/);
       expect(albumList).toHaveLength(albums.length);
+    });
+
+    it('should have album information', () => {
+      const album = StudioTwo;
+      render(<ArtistPage albums={[album]} />);
+
+      const albumTitleRegex = new RegExp(album.title, 'i');
+      const albumTitle = screen.getByRole('heading', { name: albumTitleRegex });
+      expect(albumTitle).toBeInTheDocument();
+
+      const albumType = screen.getByText(AlbumTypeMap[album.albumType]);
+      expect(albumType).toBeInTheDocument();
+
+      const albumArtist = screen.getByText(album.artists);
+      expect(albumArtist).toBeInTheDocument();
+
+      const albumReleaseDate = screen.getByText(album.releaseDate);
+      expect(albumReleaseDate).toBeInTheDocument();
+
+      const albumCover = screen.getByAltText(album.id);
+      expect(albumCover).toBeInTheDocument();
+
+      const albumSongList = screen.getByRole('table');
+      expect(albumSongList).toBeInTheDocument();
     });
   });
 });

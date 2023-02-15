@@ -7,3 +7,13 @@ export const ALBUM_TYPE = {
   LIVE: 6,
   SPECIAL: 7,
 } as const;
+
+export const AlbumTypeMap = {
+  1: '정규',
+  2: 'EP(미니)',
+  3: '싱글',
+  4: 'OST',
+  5: '컴필레이션',
+  6: '라이브',
+  7: '스페셜',
+};
