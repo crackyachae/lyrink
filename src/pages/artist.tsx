@@ -16,7 +16,7 @@ const Artist = ({ albums }: { albums: Album[] }) => (
 
         return (
           <div key={id}>
-            <h3>앨범명: {title}</h3>
+            <h3>{`앨범명: ${title}`}</h3>
           </div>
         );
       })}

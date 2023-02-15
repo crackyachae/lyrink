@@ -9,11 +9,11 @@ import { EpOne, SingleOne, StudioOne, StudioTwo } from './album.fixture';
 
 describe('GIVEN Artist page', () => {
   describe('WHEN: valid album data has passed', () => {
-    const albums = [EpOne, SingleOne, StudioOne, StudioTwo];
-    render(<ArtistPage albums={albums} />);
-
     it('should have all album in list', () => {
       // TODO: should change query
+      const albums = [EpOne, SingleOne, StudioOne, StudioTwo];
+      render(<ArtistPage albums={albums} />);
+
       const albumList = screen.getAllByText(/앨범명/);
       expect(albumList).toHaveLength(albums.length);
     });
