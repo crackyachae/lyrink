@@ -36,7 +36,7 @@ describe('GIVEN Artist page', () => {
       const albumReleaseDate = screen.getByText(album.releaseDate);
       expect(albumReleaseDate).toBeInTheDocument();
 
-      const albumCover = screen.getByAltText(album.id);
+      const albumCover = screen.getByAltText(albumTitleRegex);
       expect(albumCover).toBeInTheDocument();
 
       const albumSongList = screen.getByRole('table');
