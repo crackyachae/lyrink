@@ -9,8 +9,6 @@ const Artist = ({ albums }: { albums: Album[] }) => (
     {/* TODO */}
     {/* 앨범 데이터가 넘어오지 않았으면 에러 페이지를 띄운다. */}
 
-    {/* album list */}
-    {/* 앨범 데이터가 제대로 넘어왔으면 앨범 목록을 띄운다. */}
     <section>
       {albums.map((album) => {
         const { id, title, coverImg, albumType, releaseDate, artists, songs } =
