@@ -42,5 +42,18 @@ describe('GIVEN Artist page', () => {
       const albumSongList = screen.getByRole('table');
       expect(albumSongList).toBeInTheDocument();
     });
+
+    it('THEN only albums with two or more disks have a disk row', () => {
+      const albumWithOneDisk = StudioOne;
+      const albumWithTwoDisk = StudioTwo;
+
+      render(<ArtistPage albums={[albumWithOneDisk]} />);
+      const albumOneDiscTitle = screen.queryByText(/디스크/i);
+      expect(albumOneDiscTitle).not.toBeInTheDocument();
+
+      render(<ArtistPage albums={[albumWithTwoDisk]} />);
+      const albumTwoDiscTitle = screen.getAllByText(/디스크/i);
+      expect(albumTwoDiscTitle).toHaveLength(albumWithTwoDisk.songs.length);
+    });
   });
 });
