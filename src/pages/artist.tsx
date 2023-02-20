@@ -15,6 +15,7 @@ const Artist = ({ albums }: { albums: Album[] }) => (
       {albums.map((album) => {
         const { id, title, coverImg, albumType, releaseDate, artists, songs } =
           album;
+        const showDiscHeader = songs.length > 1;
 
         return (
           <div key={id}>
@@ -27,6 +28,11 @@ const Artist = ({ albums }: { albums: Album[] }) => (
             <table>
               {songs.map((disc, discIdx) => (
                 <tbody key={discIdx}>
+                  {showDiscHeader && (
+                    <tr>
+                      <td>{`디스크 ${discIdx + 1}`}</td>
+                    </tr>
+                  )}
                   {disc.map((track, trackIdx) => (
                     <tr key={trackIdx}>
                       <td>{trackIdx + 1}</td>
