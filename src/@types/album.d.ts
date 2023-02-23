@@ -2,7 +2,7 @@ import type { ALBUM_TYPE } from '@/components/constants';
 
 type AlbumType = typeof ALBUM_TYPE[keyof typeof ALBUM_TYPE];
 type Album = {
-  id: string;
+  _id: string;
   title: string;
   artists: string;
   albumType: AlbumType;

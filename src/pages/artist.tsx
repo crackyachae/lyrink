@@ -11,12 +11,12 @@ const Artist = ({ albums }: { albums: Album[] }) => (
 
     <section>
       {albums.map((album) => {
-        const { id, title, coverImg, albumType, releaseDate, artists, songs } =
+        const { _id, title, coverImg, albumType, releaseDate, artists, songs } =
           album;
         const showDiscHeader = songs.length > 1;
 
         return (
-          <div key={id}>
+          <div key={_id}>
             <img src={coverImg} alt={`앨범 ${title}의 커버 이미지 입니다.`} />
             <div>
               <h3>{`앨범명: ${title}`}</h3>
