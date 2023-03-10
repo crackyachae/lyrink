@@ -6,6 +6,7 @@ const createJestConfig = nextJest({
 });
 
 const customJestConfig = {
+  preset: '@shelf/jest-mongodb',
   moduleNameMapper: {
     // Handle module aliases (this will be automatically configured for you soon)
     '^@/(.*)$': '<rootDir>/src/$1',
@@ -29,7 +30,9 @@ const customJestConfig = {
       statements: 30,
     },
   },
-  testEnvironment: 'jest-environment-jsdom',
+  // it crashes with @shelf/jest-mongodb preset
+  // to use js-dom follow https://github.com/shelfio/jest-mongodb/issues/211
+  // testEnvironment: 'jest-environment-jsdom',
 };
 
 module.exports = createJestConfig(customJestConfig);
