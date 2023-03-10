@@ -3,7 +3,12 @@ import { render, screen } from '@testing-library/react';
 import { AlbumTypeMap } from '@/components/constants';
 import ArtistPage from '@/pages/artist';
 
-import { EpOne, SingleOne, StudioOne, StudioTwo } from './album.fixture';
+import {
+  EpOne,
+  SingleOne,
+  StudioOne,
+  StudioTwo,
+} from '../../tests/fixtures/album.fixture';
 
 // The easiest solution to mock `next/router`: https://github.com/vercel/next.js/issues/7479
 // The mock has been moved to `__mocks__` folder to avoid duplication

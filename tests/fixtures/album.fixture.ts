@@ -1,7 +1,9 @@
+import { ObjectId } from 'mongodb';
+
 import { ALBUM_TYPE } from '@/components/constants';
 
 const StudioOne = {
-  _id: '2139302df3f1848ad2e98392',
+  _id: new ObjectId(),
   title: 'Haute Couture',
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.STUDIO,
@@ -47,7 +49,7 @@ const StudioOne = {
 };
 
 const StudioTwo = {
-  _id: '4039323df3f4648ba2b98391',
+  _id: new ObjectId(),
   title: 'Youth!',
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.STUDIO,
@@ -95,7 +97,7 @@ const StudioTwo = {
 };
 
 const StudioThree = {
-  _id: '5019348df3f4848ca2e98491',
+  _id: new ObjectId(),
   title: 'Bleach',
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.STUDIO,
@@ -148,7 +150,7 @@ const StudioThree = {
 };
 
 const EpOne = {
-  _id: '5099803df3f4948bd2f98391',
+  _id: new ObjectId(),
   title: 'Disco Elevator',
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.EP,
@@ -176,7 +178,7 @@ const EpOne = {
 };
 
 const EpTwo = {
-  _id: '2039303df3f4848bd2b98391',
+  _id: new ObjectId(),
   title: 'Disco Elevator [iTunes Edition]',
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.EP,
@@ -207,7 +209,7 @@ const EpTwo = {
 };
 
 const EpThree = {
-  _id: '2059303da3f4848ed2b78311',
+  _id: new ObjectId(),
   title: 'Cliche',
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.EP,
@@ -235,7 +237,7 @@ const EpThree = {
 };
 
 const EpFour = {
-  _id: '7024792df3f4848bd2b98391',
+  _id: new ObjectId(),
   title: 'The Glen Check Experience EP',
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.EP,
@@ -263,7 +265,7 @@ const EpFour = {
 };
 
 const SingleOne = {
-  _id: '3039303df3f0358bd2a98351',
+  _id: new ObjectId(),
   title: 'Au Revoir',
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.SINGLE,
@@ -282,7 +284,7 @@ const SingleOne = {
 };
 
 const SingleTwo = {
-  _id: '8143383dc3f4848ad2b98391',
+  _id: new ObjectId(),
   title: 'Velvet Goldmine',
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.SINGLE,
