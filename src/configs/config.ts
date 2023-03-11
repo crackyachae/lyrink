@@ -25,8 +25,12 @@ if (error) {
 const config = {
   env: envVars.NODE_ENV,
   mongoDB: {
-    uri: envVars.MONGODB_URI + (envVars.NODE_ENV === 'test' ? '-test' : ''),
-    name: envVars.MONGODB_NAME,
+    uri:
+      envVars.NODE_ENV === 'test' ? global.__MONGO_URI__ : envVars.MONGODB_URI,
+    name:
+      envVars.NODE_ENV === 'test'
+        ? global.__MONGO_DB_NAME__
+        : envVars.MONGODB_NAME,
     options: {},
   },
 };
