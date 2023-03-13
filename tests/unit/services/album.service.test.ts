@@ -2,7 +2,7 @@ import type { Db, MongoClient } from 'mongodb';
 
 import config from '@/configs/config';
 import clientPromise from '@/lib/mongodb';
-import getAllAlbumList from '@/pages/api/services/album.service';
+import albumService from '@/pages/api/services/album.service';
 
 import {
   EpOne,
@@ -45,7 +45,7 @@ describe('GIVEN album service', () => {
         return min && album.releaseDate > min.releaseDate ? min : album;
       }, sampleAlbumList[0]);
 
-      const queriedAlbumList = await getAllAlbumList();
+      const queriedAlbumList = await albumService.getAllAlbumList();
 
       expect(queriedAlbumList).toHaveLength(sampleAlbumList.length);
       expect(queriedAlbumList[0]).toEqual(earliestReleased);

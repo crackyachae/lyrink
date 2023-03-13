@@ -4,14 +4,14 @@ import clientPromise from '../../../lib/mongodb';
 
 const COLLECTION_NAME = 'albums';
 
-async function connectToDB() {
+const connectToDB = async () => {
   const client = await clientPromise;
   const db = client.db(config.mongoDB.name);
 
   return db;
-}
+};
 
-async function getAllAlbumList() {
+const getAllAlbumList = async () => {
   try {
     const db = await connectToDB();
 
@@ -27,6 +27,10 @@ async function getAllAlbumList() {
 
     return [];
   }
-}
+};
 
-export default getAllAlbumList;
+const albumService = {
+  getAllAlbumList,
+};
+
+export default albumService;
