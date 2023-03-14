@@ -1,5 +1,6 @@
 import type { Db, MongoClient } from 'mongodb';
 
+import type { Album } from '@/@types/album';
 import config from '@/configs/config';
 import clientPromise from '@/lib/mongodb';
 import albumService from '@/pages/api/services/album.service';
@@ -35,7 +36,7 @@ afterAll(async () => {
 
 describe('GIVEN album service', () => {
   beforeAll(async () => {
-    const albumsDB = db.collection('albums');
+    const albumsDB = db.collection<Album>('albums');
     await albumsDB.insertMany(sampleAlbumList);
   });
 
