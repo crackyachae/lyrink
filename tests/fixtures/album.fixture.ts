@@ -1,5 +1,6 @@
 import { ObjectId } from 'mongodb';
 
+import type { Album } from '@/@types/album';
 import { ALBUM_TYPE } from '@/components/constants';
 
 const StudioOne = {
@@ -299,6 +300,21 @@ const SingleTwo = {
   ],
 };
 
+const sortWithReleaseDate = (arr: Album[]) => {
+  const sorted = arr.sort((a, b) => {
+    if (a.releaseDate < b.releaseDate) {
+      return -1;
+    }
+    if (a.releaseDate > b.releaseDate) {
+      return 1;
+    }
+
+    return 0;
+  });
+
+  return sorted;
+};
+
 export {
   EpFour,
   EpOne,
@@ -306,6 +322,7 @@ export {
   EpTwo,
   SingleOne,
   SingleTwo,
+  sortWithReleaseDate,
   StudioOne,
   StudioThree,
   StudioTwo,
