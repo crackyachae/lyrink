@@ -3,9 +3,10 @@
  */
 
 import { render, screen } from '@testing-library/react';
+import jestFetchMock from 'jest-fetch-mock';
 
 import { AlbumTypeMap } from '@/components/constants';
-import ArtistPage from '@/pages/artist';
+import ArtistPage, { getStaticProps } from '@/pages/artist';
 
 import {
   EpOne,
@@ -17,11 +18,29 @@ import {
 // The easiest solution to mock `next/router`: https://github.com/vercel/next.js/issues/7479
 // The mock has been moved to `__mocks__` folder to avoid duplication
 
+const albums = [EpOne, SingleOne, StudioOne, StudioTwo];
+
 describe('GIVEN Artist page', () => {
+  describe('WHEN getStaticProps works', () => {
+    beforeEach(() => {
+      jestFetchMock.resetMocks();
+    });
+
+    it('should pass props containing fetched albums', async () => {
+      jestFetchMock.mockResponseOnce(JSON.stringify(albums));
+
+      const response = await getStaticProps();
+      expect(response).toMatchObject({
+        props: {
+          albums,
+        },
+      });
+    });
+  });
+
   describe('WHEN valid album data has passed', () => {
     it('THEN it should have all album in list', () => {
       // TODO: should change query
-      const albums = [EpOne, SingleOne, StudioOne, StudioTwo];
       render(<ArtistPage albums={albums} />);
 
       const albumList = screen.getAllByText(/앨범명/);
