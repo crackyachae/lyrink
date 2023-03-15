@@ -1,6 +1,7 @@
 /* eslint-disable unused-imports/no-unused-vars */
 import type { Album } from '@/@types/album';
 import { AlbumTypeMap } from '@/components/constants';
+import config from '@/configs/config';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
@@ -48,5 +49,19 @@ const Artist = ({ albums }: { albums: Album[] }) => (
     {/* 필터 목록을 띄운다. */}
   </Main>
 );
+
+export async function getStaticProps() {
+  try {
+    const response = await fetch(`${config.baseUrl}/api/albums`);
+    const result = await response.json();
+
+    return { props: { albums: result } };
+  } catch (e) {
+    return {
+      // TODO: handle error
+      props: {},
+    };
+  }
+}
 
 export default Artist;
