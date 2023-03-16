@@ -7,9 +7,6 @@ import { Main } from '@/templates/Main';
 
 const Artist = ({ albums }: { albums: Album[] }) => (
   <Main meta={<Meta title="NELL" description="Lorem ipsum" />}>
-    {/* TODO */}
-    {/* 앨범 데이터가 넘어오지 않았으면 에러 페이지를 띄운다. */}
-
     <section>
       {albums.map((album) => {
         const { _id, title, coverImg, albumType, releaseDate, artists, songs } =
@@ -35,6 +32,7 @@ const Artist = ({ albums }: { albums: Album[] }) => (
                   {disc.map((track, trackIdx) => (
                     <tr key={trackIdx}>
                       <td>{trackIdx + 1}</td>
+                      {/* TODO: link to song page */}
                       <td>{track.title}</td>
                     </tr>
                   ))}
