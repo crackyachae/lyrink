@@ -21,9 +21,9 @@ describe('GIVEN AlbumFilter component', () => {
     render(<AlbumFilter albums={albums} />);
 
     it('should have album filter with type and year', () => {
-      const albumYears = getSortedAlbumYears(albums);
       const albumTypes = getSortedAlbumTypes(albums);
-      const albumFilters = [...albumYears, ...albumTypes];
+      const albumYears = getSortedAlbumYears(albums);
+      const albumFilters = [...albumTypes, ...albumYears];
 
       const yearFilterHeader = screen.getByRole('heading', { name: /연도/i });
       const typeFilterHeader = screen.getByRole('heading', { name: /유형/i });
