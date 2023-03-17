@@ -12,8 +12,6 @@ export default function Artist({ albums }: { albums: Album[] }) {
     <Main meta={<Meta title="NELL" description="Lorem ipsum" />}>
       <AlbumFilter albums={albums} />
       <AlbumList albums={albums} />
-      {/* 앨범 데이터로 필터 데이터를 생성한다. */}
-      {/* 필터 목록을 띄운다. */}
     </Main>
   );
 }
