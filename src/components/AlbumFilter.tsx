@@ -1,9 +1,10 @@
-import type { Album } from '@/@types/album';
-import { getSortedAlbumTypes, getSortedAlbumYears } from '@/utils/filterUtils';
+import type { AlbumFilterType } from '@/@types/album';
 
-export default function AlbumFilter({ albums }: { albums: Album[] }) {
-  const albumTypes = getSortedAlbumTypes(albums);
-  const albumYears = getSortedAlbumYears(albums);
+import { AlbumTypeMap } from './constants';
+
+export default function AlbumFilter({ filter }: { filter: AlbumFilterType }) {
+  const albumTypes = Object.values(filter.type);
+  const albumYears = Object.values(filter.year);
 
   return (
     <section>
@@ -12,7 +13,7 @@ export default function AlbumFilter({ albums }: { albums: Album[] }) {
         <div>
           {albumTypes.map((type) => (
             <button type="button" key={`type-${type}`}>
-              {type}
+              {AlbumTypeMap[type]}
             </button>
           ))}
         </div>

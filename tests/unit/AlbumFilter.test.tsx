@@ -5,7 +5,8 @@
 import { render, screen } from '@testing-library/react';
 
 import AlbumFilter from '@/components/AlbumFilter';
-import { getSortedAlbumTypes, getSortedAlbumYears } from '@/utils/filterUtils';
+import { AlbumTypeMap } from '@/components/constants';
+import { getAlbumFilter } from '@/utils/filterUtils';
 
 import {
   EpOne,
@@ -15,14 +16,17 @@ import {
 } from '../fixtures/album.fixture';
 
 const albums = [EpOne, SingleOne, StudioOne, StudioTwo];
+const filter = getAlbumFilter(albums);
 
 describe('GIVEN AlbumFilter component', () => {
   describe('WHEN valid album data has passed', () => {
-    render(<AlbumFilter albums={albums} />);
+    render(<AlbumFilter filter={filter} />);
 
     it('should have album filter with type and year', () => {
-      const albumTypes = getSortedAlbumTypes(albums);
-      const albumYears = getSortedAlbumYears(albums);
+      const albumTypes = Object.values(filter.type).map(
+        (type) => AlbumTypeMap[type]
+      );
+      const albumYears = Object.values(filter.year);
       const albumFilters = [...albumTypes, ...albumYears];
 
       const yearFilterHeader = screen.getByRole('heading', { name: /연도/i });

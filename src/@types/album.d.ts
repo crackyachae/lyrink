@@ -15,3 +15,8 @@ type Album = {
   }[][];
   // [discNum][trackNum]
 };
+
+type AlbumFilterType = {
+  type: AlbumType[];
+  year: string[];
+};
