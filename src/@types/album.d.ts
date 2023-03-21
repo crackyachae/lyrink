@@ -17,6 +17,6 @@ type Album = {
 };
 
 type AlbumFilterType = {
-  type: AlbumType[];
-  year: string[];
+  type: { [key in AlbumType]: boolean };
+  year: { [key: string]: boolean };
 };
