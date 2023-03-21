@@ -3,13 +3,11 @@ import type { Album, AlbumFilterType, AlbumType } from '@/@types/album';
 type FilterObjectType<T extends AlbumType | string> = { [key in T]: boolean };
 
 export const getSortedAlbumYears = (albums: Album[]): string[] => {
-  return [
-    ...new Set(albums.map((album) => album.releaseDate.slice(0, 4))),
-  ].sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+  return albums.map((album) => album.releaseDate.slice(0, 4)).sort();
 };
 
 export const getSortedAlbumTypes = (albums: Album[]): AlbumType[] => {
-  return [...new Set(albums.map((album) => album.albumType))].sort();
+  return albums.map((album) => album.albumType).sort();
 };
 
 export const createFilterObject = <T extends AlbumType | string>(
