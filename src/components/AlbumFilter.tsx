@@ -44,14 +44,14 @@ export default function AlbumFilter(props: TAlbumFilterProps) {
   );
 
   return (
-    <section>
+    <section className="mb-24">
       {/* TODO: use array map to render each filter */}
-      <div className="mb-8">
+      <div className="mb-4">
         <h4 className="mb-4 text-xl font-semibold text-black">유형</h4>
-        <div className="btn-group">
+        <div className="btn-group flex flex-wrap">
           {albumTypes.map((albumType) => (
             <button
-              className={`btn-md btn mr-2 ${
+              className={`btn-md btn mb-2 mr-2 ${
                 filter.type[albumType] ? 'btn-primary' : 'btn-outline'
               }`}
               type="button"
@@ -65,12 +65,12 @@ export default function AlbumFilter(props: TAlbumFilterProps) {
           ))}
         </div>
       </div>
-      <div className="mb-8">
+      <div className="mb-4">
         <h4 className="mb-4 text-xl font-semibold text-black">연도</h4>
-        <div className="btn-group">
+        <div className="btn-group flex flex-wrap">
           {albumYears.map((year) => (
             <button
-              className={`btn-md btn mr-2 ${
+              className={`btn-md btn mb-2 mr-2 ${
                 filter.year[year] ? 'btn-primary' : 'btn-outline'
               }`}
               type="button"
