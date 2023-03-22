@@ -45,6 +45,7 @@ export default function AlbumFilter(props: TAlbumFilterProps) {
 
   return (
     <section>
+      {/* TODO: use array map to render each filter */}
       <div className="mb-8">
         <h4 className="mb-4 text-xl font-semibold text-black">유형</h4>
         <div className="btn-group">
