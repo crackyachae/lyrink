@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 
-import type { Album } from '@/@types/album';
+import type { TAlbum } from '@/@types/album';
 import { ALBUM_TYPE } from '@/components/constants';
 
 const StudioOne = {
@@ -300,7 +300,7 @@ const SingleTwo = {
   ],
 };
 
-const sortWithReleaseDate = (arr: Album[]) => {
+const sortWithReleaseDate = (arr: TAlbum[]) => {
   const sorted = arr.sort((a, b) => {
     if (a.releaseDate < b.releaseDate) {
       return -1;

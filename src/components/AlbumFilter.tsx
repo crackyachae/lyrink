@@ -1,16 +1,16 @@
 import type { Dispatch, SetStateAction } from 'react';
 import { useCallback } from 'react';
 
-import type { AlbumFilterType, AlbumType } from '@/@types/album';
+import type { TAlbumFilter, TAlbumType } from '@/@types/album';
 
 import { AlbumTypeMap } from './constants';
 
-type AlbumFilterProps = {
-  filter: AlbumFilterType;
-  setFilter: Dispatch<SetStateAction<AlbumFilterType>>;
+type TAlbumFilterProps = {
+  filter: TAlbumFilter;
+  setFilter: Dispatch<SetStateAction<TAlbumFilter>>;
 };
 
-export default function AlbumFilter(props: AlbumFilterProps) {
+export default function AlbumFilter(props: TAlbumFilterProps) {
   const { filter, setFilter } = props;
   const albumTypes = Object.keys(filter.type);
   const albumYears = Object.keys(filter.year);
@@ -18,7 +18,7 @@ export default function AlbumFilter(props: AlbumFilterProps) {
   const handleClickFilter = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       const { value } = e.currentTarget;
-      const filterType = e.currentTarget.name as keyof AlbumFilterType;
+      const filterType = e.currentTarget.name as keyof TAlbumFilter;
 
       // TODO: return if filterType is not keyof AlbumFilter
 
@@ -26,7 +26,7 @@ export default function AlbumFilter(props: AlbumFilterProps) {
         // TODO: separate type without condition block
         let target;
         if (filterType === 'type') {
-          target = prevFilter.type[value as AlbumType];
+          target = prevFilter.type[value as TAlbumType];
         } else {
           target = prevFilter.year[value as string];
         }

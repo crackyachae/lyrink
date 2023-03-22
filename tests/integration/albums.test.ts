@@ -1,7 +1,7 @@
 import type { Db, MongoClient } from 'mongodb';
 import { createMocks } from 'node-mocks-http';
 
-import type { Album } from '@/@types/album';
+import type { TAlbum } from '@/@types/album';
 import config from '@/configs/config';
 import clientPromise from '@/lib/mongodb';
 import handleAlbums from '@/pages/api/albums';
@@ -28,7 +28,7 @@ const sampleAlbumList = [
 ];
 const sortedSampleAlbumList = sortWithReleaseDate(sampleAlbumList);
 
-const parseFixtureToJson = (fixture: Album | undefined) => {
+const parseFixtureToJson = (fixture: TAlbum | undefined) => {
   if (!fixture) {
     return {};
   }
@@ -46,12 +46,12 @@ afterAll(async () => {
 
 describe('GIVEN albums route', () => {
   beforeAll(async () => {
-    const albumsDB = db.collection<Album>('albums');
+    const albumsDB = db.collection<TAlbum>('albums');
     await albumsDB.insertMany(sampleAlbumList);
   });
 
   afterAll(async () => {
-    const albumsDB = db.collection<Album>('albums');
+    const albumsDB = db.collection<TAlbum>('albums');
     await albumsDB.deleteMany({});
   });
 

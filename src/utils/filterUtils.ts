@@ -1,16 +1,16 @@
-import type { Album, AlbumFilterType, AlbumType } from '@/@types/album';
+import type { TAlbum, TAlbumFilter, TAlbumType } from '@/@types/album';
 
-type FilterObjectType<T extends AlbumType | string> = { [key in T]: boolean };
+type FilterObjectType<T extends TAlbumType | string> = { [key in T]: boolean };
 
-export const getSortedAlbumYears = (albums: Album[]): string[] => {
+export const getSortedAlbumYears = (albums: TAlbum[]): string[] => {
   return albums.map((album) => album.releaseDate.slice(0, 4)).sort();
 };
 
-export const getSortedAlbumTypes = (albums: Album[]): AlbumType[] => {
+export const getSortedAlbumTypes = (albums: TAlbum[]): TAlbumType[] => {
   return albums.map((album) => album.albumType).sort();
 };
 
-export const createFilterObject = <T extends AlbumType | string>(
+export const createFilterObject = <T extends TAlbumType | string>(
   filter: T[]
 ): FilterObjectType<T> => {
   return filter.reduce(
@@ -19,8 +19,8 @@ export const createFilterObject = <T extends AlbumType | string>(
   );
 };
 
-export const getAlbumFilter = (albums: Album[]): AlbumFilterType => {
-  const typeFilter = new Set<AlbumType>([]);
+export const getAlbumFilter = (albums: TAlbum[]): TAlbumFilter => {
+  const typeFilter = new Set<TAlbumType>([]);
   const yearFilter = new Set<string>([]);
 
   albums.forEach((album) => {

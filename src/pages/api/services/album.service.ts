@@ -1,4 +1,4 @@
-import type { Album } from '@/@types/album';
+import type { TAlbum } from '@/@types/album';
 import config from '@/configs/config';
 
 import clientPromise from '../../../lib/mongodb';
@@ -17,7 +17,7 @@ const getAllAlbumList = async () => {
     const db = await connectToDB();
 
     const allAlbumList = await db
-      .collection<Album>(COLLECTION_NAME)
+      .collection<TAlbum>(COLLECTION_NAME)
       .find({})
       .sort({ releaseDate: 1 })
       .toArray();

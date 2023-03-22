@@ -1,12 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import type { Album } from '@/@types/album';
+import type { TAlbum } from '@/@types/album';
 
 import { albumService } from '../services';
 
 export default async function handleAlbums(
   req: NextApiRequest,
-  res: NextApiResponse<Album[]>
+  res: NextApiResponse<TAlbum[]>
 ) {
   const { method } = req;
 

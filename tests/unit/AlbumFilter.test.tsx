@@ -5,7 +5,7 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 
-import type { Album, AlbumFilterType } from '@/@types/album';
+import type { TAlbum, TAlbumFilter } from '@/@types/album';
 import AlbumFilter from '@/components/AlbumFilter';
 import { AlbumTypeMap } from '@/components/constants';
 import { getAlbumFilter } from '@/utils/filterUtils';
@@ -17,8 +17,8 @@ import {
   StudioTwo,
 } from '../fixtures/album.fixture';
 
-const albums: Album[] = [EpOne, SingleOne, StudioOne, StudioTwo];
-const filter: AlbumFilterType = getAlbumFilter(albums);
+const albums: TAlbum[] = [EpOne, SingleOne, StudioOne, StudioTwo];
+const filter: TAlbumFilter = getAlbumFilter(albums);
 
 describe('GIVEN AlbumFilter component', () => {
   describe('WHEN valid album data has passed', () => {

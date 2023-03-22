@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 
-import type { Album } from '@/@types/album';
+import type { TAlbum } from '@/@types/album';
 import AlbumFilter from '@/components/AlbumFilter';
 import AlbumList from '@/components/AlbumList';
 import config from '@/configs/config';
@@ -10,7 +10,7 @@ import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 import { getAlbumFilter } from '@/utils/filterUtils';
 
-export default function ArtistPage({ albums }: { albums: Album[] }) {
+export default function ArtistPage({ albums }: { albums: TAlbum[] }) {
   const [filter, setFilter] = useState(getAlbumFilter(albums));
   const filteredAlbum = useMemo(() => {
     const isTypeFiltered = Object.values(filter.type).includes(true);

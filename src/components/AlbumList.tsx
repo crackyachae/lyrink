@@ -1,8 +1,8 @@
-import type { Album } from '@/@types/album';
+import type { TAlbum } from '@/@types/album';
 
 import { AlbumTypeMap } from './constants';
 
-export default function AlbumList({ albums }: { albums: Album[] }) {
+export default function AlbumList({ albums }: { albums: TAlbum[] }) {
   return (
     <section>
       {albums.map((album) => {
