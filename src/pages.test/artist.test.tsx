@@ -51,6 +51,7 @@ describe('GIVEN Artist page', () => {
       });
 
       await userEvent.click(yearFilterBtn);
+      expect(yearFilterBtn).toHaveClass('btn-primary');
 
       const leftAlbumYears = screen.getAllByText(/\d{4}\.\d{2}\.\d{2}/i);
       leftAlbumYears.forEach((year) => {
@@ -58,6 +59,7 @@ describe('GIVEN Artist page', () => {
       });
 
       await userEvent.click(yearFilterBtn);
+      expect(yearFilterBtn).toHaveClass('btn-outline');
 
       const listedAlbumYears = screen.getAllByText(/\d{4}\.\d{2}\.\d{2}/i);
       const albumYears = getSortedAlbumYears(albums);
