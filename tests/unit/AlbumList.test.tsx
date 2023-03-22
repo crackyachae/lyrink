@@ -22,7 +22,7 @@ describe('GIVEN AlbumList component', () => {
       // TODO: should change query
       render(<AlbumList albums={albums} />);
 
-      const albumList = screen.getAllByText(/앨범명/);
+      const albumList = screen.getAllByRole('heading');
       expect(albumList).toHaveLength(albums.length);
     });
 
