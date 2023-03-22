@@ -19,7 +19,7 @@ const getAllAlbumList = async () => {
     const allAlbumList = await db
       .collection<TAlbum>(COLLECTION_NAME)
       .find({})
-      .sort({ releaseDate: 1 })
+      .sort({ releasedDate: 1 })
       .toArray();
 
     return allAlbumList;

@@ -3,7 +3,7 @@ import type { TAlbum, TAlbumFilter, TAlbumType } from '@/@types/album';
 type FilterObjectType<T extends TAlbumType | string> = { [key in T]: boolean };
 
 export const getSortedAlbumYears = (albums: TAlbum[]): string[] => {
-  return albums.map((album) => album.releaseDate.slice(0, 4)).sort();
+  return albums.map((album) => album.releasedDate.slice(0, 4)).sort();
 };
 
 export const getSortedAlbumTypes = (albums: TAlbum[]): TAlbumType[] => {
@@ -25,7 +25,7 @@ export const getAlbumFilter = (albums: TAlbum[]): TAlbumFilter => {
 
   albums.forEach((album) => {
     typeFilter.add(album.albumType);
-    yearFilter.add(album.releaseDate.slice(0, 4));
+    yearFilter.add(album.releasedDate.slice(0, 4));
   });
 
   return {

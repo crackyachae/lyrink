@@ -9,7 +9,7 @@ type TAlbum = {
   artists: string;
   albumType: TAlbumType;
   coverImg: string;
-  releaseDate: string;
+  releasedDate: string;
   songs: {
     title: string;
   }[][];

@@ -9,7 +9,7 @@ const StudioOne = {
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.STUDIO,
   coverImg: 'https://image.bugsm.co.kr/album/images/1000/3224/322456.jpg',
-  releaseDate: '2012.03.06',
+  releasedDate: '2012.03.06',
   songs: [
     [
       {
@@ -55,7 +55,7 @@ const StudioTwo = {
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.STUDIO,
   coverImg: 'https://image.bugsm.co.kr/album/images/1000/3962/396268.jpg',
-  releaseDate: '2013.11.19',
+  releasedDate: '2013.11.19',
   songs: [
     [
       {
@@ -104,7 +104,7 @@ const StudioThree = {
   albumType: ALBUM_TYPE.STUDIO,
   coverImg:
     'https://image.bugsm.co.kr/album/images/original/164782/16478242.jpg',
-  releaseDate: '2022.03.03',
+  releasedDate: '2022.03.03',
   songs: [
     [
       {
@@ -156,7 +156,7 @@ const EpOne = {
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.EP,
   coverImg: 'https://image.bugsm.co.kr/album/images/1000/2632/263233.jpg',
-  releaseDate: '2011.02.11',
+  releasedDate: '2011.02.11',
   songs: [
     [
       {
@@ -184,7 +184,7 @@ const EpTwo = {
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.EP,
   coverImg: 'https://image.bugsm.co.kr/album/images/1000/2723/272330.jpg',
-  releaseDate: '2011.03.21',
+  releasedDate: '2011.03.21',
   songs: [
     [
       {
@@ -215,7 +215,7 @@ const EpThree = {
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.EP,
   coverImg: 'https://image.bugsm.co.kr/album/images/1000/3428/342868.jpg',
-  releaseDate: '2012.09.28',
+  releasedDate: '2012.09.28',
   songs: [
     [
       {
@@ -243,7 +243,7 @@ const EpFour = {
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.EP,
   coverImg: 'https://image.bugsm.co.kr/album/images/1000/201133/20113320.jpg',
-  releaseDate: '2017.08.13',
+  releasedDate: '2017.08.13',
   songs: [
     [
       {
@@ -271,7 +271,7 @@ const SingleOne = {
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.SINGLE,
   coverImg: 'https://image.bugsm.co.kr/album/images/1000/3081/308169.jpg',
-  releaseDate: '2011.09.29',
+  releasedDate: '2011.09.29',
   songs: [
     [
       {
@@ -290,7 +290,7 @@ const SingleTwo = {
   artists: 'Glen Check',
   albumType: ALBUM_TYPE.SINGLE,
   coverImg: 'https://image.bugsm.co.kr/album/images/1000/201839/20183978.jpg',
-  releaseDate: '2018.08.03',
+  releasedDate: '2018.08.03',
   songs: [
     [
       {
@@ -300,12 +300,12 @@ const SingleTwo = {
   ],
 };
 
-const sortWithReleaseDate = (arr: TAlbum[]) => {
+const sortWithReleasedDate = (arr: TAlbum[]) => {
   const sorted = arr.sort((a, b) => {
-    if (a.releaseDate < b.releaseDate) {
+    if (a.releasedDate < b.releasedDate) {
       return -1;
     }
-    if (a.releaseDate > b.releaseDate) {
+    if (a.releasedDate > b.releasedDate) {
       return 1;
     }
 
@@ -322,7 +322,7 @@ export {
   EpTwo,
   SingleOne,
   SingleTwo,
-  sortWithReleaseDate,
+  sortWithReleasedDate,
   StudioOne,
   StudioThree,
   StudioTwo,

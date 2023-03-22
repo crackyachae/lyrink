@@ -12,7 +12,7 @@ import { getSortedAlbumYears } from '@/utils/filterUtils';
 import {
   EpOne,
   SingleOne,
-  sortWithReleaseDate,
+  sortWithReleasedDate,
   StudioOne,
   StudioTwo,
 } from '../../tests/fixtures/album.fixture';
@@ -20,7 +20,7 @@ import {
 // The easiest solution to mock `next/router`: https://github.com/vercel/next.js/issues/7479
 // The mock has been moved to `__mocks__` folder to avoid duplication
 
-const albums = sortWithReleaseDate([EpOne, SingleOne, StudioOne, StudioTwo]);
+const albums = sortWithReleasedDate([EpOne, SingleOne, StudioOne, StudioTwo]);
 
 describe('GIVEN Artist page', () => {
   describe('WHEN getStaticProps works', () => {
@@ -42,7 +42,7 @@ describe('GIVEN Artist page', () => {
 
   describe('WHEN interact with filter', () => {
     const target = StudioOne;
-    const targetYear = target.releaseDate.slice(0, 4);
+    const targetYear = target.releasedDate.slice(0, 4);
 
     it('should filter and unfilter albums correctly', async () => {
       render(<ArtistPage albums={albums} />);

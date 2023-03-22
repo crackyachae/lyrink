@@ -6,8 +6,15 @@ export default function AlbumList({ albums }: { albums: TAlbum[] }) {
   return (
     <section>
       {albums.map((album) => {
-        const { _id, title, coverImg, albumType, releaseDate, artists, songs } =
-          album;
+        const {
+          _id,
+          title,
+          coverImg,
+          albumType,
+          releasedDate,
+          artists,
+          songs,
+        } = album;
         const showDiscHeader = songs.length > 1;
 
         return (
@@ -24,7 +31,7 @@ export default function AlbumList({ albums }: { albums: TAlbum[] }) {
                 <h3 className="mb-2 text-2xl font-bold">{title}</h3>
                 <div className="mb-4 text-base">
                   <span>{AlbumTypeMap[albumType]}</span> |{' '}
-                  <span>{releaseDate}</span> | <span>{artists}</span>
+                  <span>{releasedDate}</span> | <span>{artists}</span>
                 </div>
               </div>
               <table className="table-compact table w-full table-fixed">

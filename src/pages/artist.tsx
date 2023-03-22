@@ -19,7 +19,7 @@ export default function ArtistPage({ albums }: { albums: TAlbum[] }) {
     return albums.filter((album) => {
       return (
         (!isTypeFiltered || filter.type[album.albumType]) &&
-        (!isYearFiltered || filter.year[album.releaseDate.slice(0, 4)])
+        (!isYearFiltered || filter.year[album.releasedDate.slice(0, 4)])
       );
     });
   }, [filter]);

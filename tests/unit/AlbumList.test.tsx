@@ -40,8 +40,8 @@ describe('GIVEN AlbumList component', () => {
       const albumArtist = screen.getByText(album.artists);
       expect(albumArtist).toBeInTheDocument();
 
-      const albumReleaseDate = screen.getByText(album.releaseDate);
-      expect(albumReleaseDate).toBeInTheDocument();
+      const albumReleasedDate = screen.getByText(album.releasedDate);
+      expect(albumReleasedDate).toBeInTheDocument();
 
       const albumCover = screen.getByAltText(albumTitleRegex);
       expect(albumCover).toBeInTheDocument();

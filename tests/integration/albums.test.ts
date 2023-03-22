@@ -11,7 +11,7 @@ import {
   EpTwo,
   SingleOne,
   SingleTwo,
-  sortWithReleaseDate,
+  sortWithReleasedDate,
   StudioOne,
   StudioTwo,
 } from '../fixtures/album.fixture';
@@ -26,7 +26,7 @@ const sampleAlbumList = [
   SingleOne,
   SingleTwo,
 ];
-const sortedSampleAlbumList = sortWithReleaseDate(sampleAlbumList);
+const sortedSampleAlbumList = sortWithReleasedDate(sampleAlbumList);
 
 const parseFixtureToJson = (fixture: TAlbum | undefined) => {
   if (!fixture) {
