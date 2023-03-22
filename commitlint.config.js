@@ -14,6 +14,7 @@ module.exports = {
         'test',
         'build',
         'ci',
+        'design',
         'chore',
         'comment',
         'revert',
