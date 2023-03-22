@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+
 @tailwind base;
 
 a {
@@ -18,4 +20,8 @@ a:hover {
 
 .content ul {
   @apply my-6;
+}
+
+html {
+  font-family: 'Pretendard', '-apple-system', 'BlinkMacSystemFont', system-ui, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif
 }
