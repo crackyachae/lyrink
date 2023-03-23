@@ -12,6 +12,7 @@ type TAlbum = {
   releasedDate: string;
   songs: {
     title: string;
+    songId: ObjectId | null;
   }[][];
   // [discNum][trackNum]
 };
