@@ -7,5 +7,3 @@ A music review system focusing on the links between lyrics.
 ## Commands
 
 ## License
-
-[MIT](LICENSE)
