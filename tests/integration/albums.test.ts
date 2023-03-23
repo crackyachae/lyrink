@@ -15,6 +15,7 @@ import {
   StudioOne,
   StudioTwo,
 } from '../fixtures/album.fixture';
+import { parseFixtureToJson } from '../utils/fixtureUtils';
 
 let client: MongoClient;
 let db: Db;
@@ -27,13 +28,6 @@ const sampleAlbumList = [
   SingleTwo,
 ];
 const sortedSampleAlbumList = sortWithReleasedDate(sampleAlbumList);
-
-const parseFixtureToJson = (fixture: TAlbum | undefined) => {
-  if (!fixture) {
-    return {};
-  }
-  return JSON.parse(JSON.stringify(fixture));
-};
 
 beforeAll(async () => {
   client = await clientPromise;
