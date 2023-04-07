@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import type { TAlbum } from '@/@types/album';
 
 import { AlbumTypeMap } from './constants';
@@ -45,8 +47,15 @@ export default function AlbumList({ albums }: { albums: TAlbum[] }) {
                     {disc.map((track, trackIdx) => (
                       <tr key={trackIdx}>
                         <td width="12%">{trackIdx + 1}</td>
-                        {/* TODO: link to song page */}
-                        <td>{track.title}</td>
+                        <td>
+                          {track.songId ? (
+                            <Link href={`/song/${track.songId}`}>
+                              {track.title}
+                            </Link>
+                          ) : (
+                            track.title
+                          )}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
