@@ -7,7 +7,7 @@ import type { GetServerSidePropsContext } from 'next';
 import type { ParsedUrlQuery } from 'querystring';
 
 import config from '@/configs/config';
-import { getServerSideProps } from '@/pages/song';
+import { getServerSideProps } from '@/pages/song/[songId]';
 
 import { Studio1Track2 } from '../../tests/fixtures/song.fixture';
 
