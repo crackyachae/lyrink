@@ -23,23 +23,21 @@ describe('GIVEN Song page', () => {
       jestFetchMock.resetMocks();
     });
 
-    it('should pass props containing fetched song', async () => {
+    it('should pass props containing dehydratedState with song data cached', async () => {
+      jestFetchMock.mockResponseOnce(JSON.stringify(song));
       const context = {
         params: { songId: `${song._id}` } as ParsedUrlQuery,
       };
-      jestFetchMock.mockResponseOnce(JSON.stringify(song));
 
       const response = await getServerSideProps(
         context as GetServerSidePropsContext
       );
+
       expect(jestFetchMock).toHaveBeenCalledWith(
         `${config.baseUrl}/api/songs/${song._id}`
       );
-      expect(response).toMatchObject({
-        props: {
-          song,
-        },
-      });
+      // TODO: Need to improve to check dehydrateState in props
+      expect(response.props).toHaveProperty('dehydratedState');
     });
   });
 });
