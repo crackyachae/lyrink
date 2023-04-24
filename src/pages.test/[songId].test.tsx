@@ -13,10 +13,6 @@ import { Studio1Track2 } from '../../tests/fixtures/song.fixture';
 
 const song = Studio1Track2;
 
-jest.mock('next/router', () => ({
-  useRouter: jest.fn(),
-}));
-
 describe('GIVEN Song page', () => {
   describe('WHEN getServerSideProps works', () => {
     beforeEach(() => {
