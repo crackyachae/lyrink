@@ -12,12 +12,14 @@ import { useState } from 'react';
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [queryClient] = useState(() => new QueryClient());
 
-  <QueryClientProvider client={queryClient}>
-    <Hydrate state={pageProps.dehydratedState}>
-      <Component {...pageProps} />
-    </Hydrate>
-    <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
-  </QueryClientProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <Component {...pageProps} />
+      </Hydrate>
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+    </QueryClientProvider>
+  );
 };
 
 export default MyApp;
