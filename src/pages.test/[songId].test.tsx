@@ -82,7 +82,7 @@ describe('GIVEN Song page', () => {
     });
   });
 
-  describe('WHEN song query results error', () => {
+  describe('WHEN song query returns error', () => {
     it('should render an error message', () => {
       const error = {
         name: 'QueryError',
