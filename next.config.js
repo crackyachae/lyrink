@@ -14,10 +14,13 @@ module.exports = withBundleAnalyzer({
   // So, the source code is "basePath-ready".
   // You can remove `basePath` if you don't need it.
   reactStrictMode: true,
-  webpack5: true,
-  webpack: (config) => {
-    // eslint-disable-next-line no-param-reassign
-    config.resolve.fallback = { fs: false };
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // eslint-disable-next-line no-param-reassign
+      config.resolve.fallback = {
+        fs: false,
+      };
+    }
 
     return config;
   },
