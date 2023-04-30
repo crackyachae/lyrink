@@ -45,15 +45,15 @@ export default function SongPage() {
 
   return (
     <Main meta={<Meta title="TODO" description="TODO" />}>
-      <h3>{songTitle}</h3>
-      <div>
-        <span>{albumTitle}</span> | <span>{artists}</span>
+      <h3 className="mb-1 text-2xl font-bold">{songTitle}</h3>
+      <div className="text-sm">
+        <span>{artists}</span> | <span>{albumTitle}</span>
       </div>
-      <div>
+      <div className="my-16 text-base">
         {lyrics?.map((section, i) => (
-          <div key={`section-${i}`}>
+          <div key={`section-${i}`} className="mb-4 flex flex-col items-center">
             {section.phrases.map((phrase, j) => (
-              <div key={`phrase-${j}`}>
+              <div key={`phrase-${j}`} className="mb-1">
                 {phrase.words.map((word, k) => (
                   <span key={`work-${k}`}>{word.wordText} </span>
                 ))}
