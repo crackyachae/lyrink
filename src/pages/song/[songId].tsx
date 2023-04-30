@@ -69,9 +69,6 @@ export default function SongPage() {
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   try {
     const { songId } = context.params || { songId: '' };
-    if (songId === undefined || songId === '') {
-      // TODO: handle error
-    }
 
     const queryClient = new QueryClient();
     await queryClient.prefetchQuery([queryKey.SONG, songId], () =>
@@ -85,8 +82,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     };
   } catch (e) {
     return {
-      // TODO: handle error
-      props: {},
+      notFound: true,
     };
   }
 }
