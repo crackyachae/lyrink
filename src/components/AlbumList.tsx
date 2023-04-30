@@ -20,7 +20,7 @@ export default function AlbumList({ albums }: { albums: TAlbum[] }) {
         const showDiscHeader = songs.length > 1;
 
         return (
-          <div key={`${_id}`} className="mb-16 flex flex-wrap text-black">
+          <div key={`${_id}`} className="mb-16 flex flex-wrap">
             <div className="mr-8 mb-8 flex-none basis-60">
               <img
                 src={coverImg}

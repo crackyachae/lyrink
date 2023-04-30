@@ -82,7 +82,7 @@ describe('GIVEN Song page', () => {
     });
   });
 
-  describe('WHEN song query results error', () => {
+  describe('WHEN song query returns error', () => {
     it('should render an error message', () => {
       const error = {
         name: 'QueryError',
@@ -99,6 +99,33 @@ describe('GIVEN Song page', () => {
       const errorMsgRegex = new RegExp(error.message, 'i');
       const errorElement = screen.getByText(errorMsgRegex);
       expect(errorElement).toBeInTheDocument();
+    });
+  });
+
+  describe('WHEN song query returns correct data', () => {
+    it('should have song information', () => {
+      useSongQueryMock.mockImplementationOnce(() => ({
+        data: song,
+        isLoading: false,
+        isError: false,
+      }));
+
+      render(<SongPage />);
+
+      const songTitleRegex = new RegExp(song.songTitle, 'i');
+      const songTitle = screen.getByRole('heading', { name: songTitleRegex });
+      expect(songTitle).toBeInTheDocument();
+
+      const albumTitle = screen.getByText(song.albumTitle);
+      expect(albumTitle).toBeInTheDocument();
+
+      const songArtist = screen.getByText(song.artists);
+      expect(songArtist).toBeInTheDocument();
+
+      const songLyricText = screen.getAllByText(
+        song.lyrics[0]?.phrases[0]?.words[0]?.wordText as string
+      );
+      expect(songLyricText[0]).toBeInTheDocument();
     });
   });
 });
