@@ -6,6 +6,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import jestFetchMock from 'jest-fetch-mock';
 
+import config from '@/configs/config';
 import ArtistPage, { getStaticProps } from '@/pages/artist';
 import { getSortedAlbumYears } from '@/utils/filterUtils';
 
@@ -32,6 +33,9 @@ describe('GIVEN Artist page', () => {
       jestFetchMock.mockResponseOnce(JSON.stringify(albums));
 
       const response = await getStaticProps();
+      expect(jestFetchMock).toHaveBeenCalledWith(
+        `${config.baseUrl}/api/albums`
+      );
       expect(response).toMatchObject({
         props: {
           albums,

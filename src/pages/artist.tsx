@@ -25,7 +25,7 @@ export default function ArtistPage({ albums }: { albums: TAlbum[] }) {
   }, [filter]);
 
   return (
-    <Main meta={<Meta title="NELL" description="Lorem ipsum" />}>
+    <Main meta={<Meta title="TODO" description="TODO" />}>
       <AlbumFilter filter={filter} setFilter={setFilter} />
       <AlbumList albums={filteredAlbum} />
     </Main>

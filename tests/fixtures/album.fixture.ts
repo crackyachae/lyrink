@@ -14,36 +14,47 @@ const StudioOne = {
     [
       {
         title: 'The Naked Sun',
+        songId: null,
       },
       {
         title: 'Vogue Boys And Girls',
+        songId: new ObjectId(),
       },
       {
         title: 'French Virgin Party',
+        songId: null,
       },
       {
         title: 'The Flashback',
+        songId: null,
       },
       {
         title: 'Rebellion',
+        songId: null,
       },
       {
         title: 'Battaille!',
+        songId: null,
       },
       {
         title: 'Au Revoir',
+        songId: null,
       },
       {
         title: 'Concorde',
+        songId: null,
       },
       {
         title: "60's Cardin",
+        songId: null,
       },
       {
         title: 'Racket',
+        songId: null,
       },
       {
         title: 'Vivid',
+        songId: null,
       },
     ],
   ],
@@ -60,38 +71,49 @@ const StudioTwo = {
     [
       {
         title: 'The Match Open',
+        songId: null,
       },
       {
         title: 'Pacific',
+        songId: null,
       },
       {
         title: 'Summer Hearts',
+        songId: null,
       },
       {
         title: 'Youth In Revolt',
+        songId: null,
       },
       {
         title: 'Paint It Gold',
+        songId: null,
       },
       {
         title: 'Anthem For The Wild Souls',
+        songId: null,
       },
     ],
     [
       {
         title: 'Young Generation',
+        songId: null,
       },
       {
         title: "I've Got This Feeling",
+        songId: null,
       },
       {
         title: 'Brooklyn',
+        songId: null,
       },
       {
         title: 'The Coast',
+        songId: null,
       },
       {
         title: 'Jordan',
+        songId: null,
       },
     ],
   ],
@@ -109,42 +131,55 @@ const StudioThree = {
     [
       {
         title: 'Acid Test',
+        songId: null,
       },
       {
         title: 'Dazed & Confused',
+        songId: null,
       },
       {
         title: 'Waves',
+        songId: null,
       },
       {
         title: 'Dive Baby, Dive',
+        songId: null,
       },
       {
         title: 'Sins',
+        songId: null,
       },
       {
         title: 'Sometimes You Gotta Shake It Off',
+        songId: null,
       },
       {
         title: 'Blush (feat. sokodomo)',
+        songId: null,
       },
       {
         title: 'Bliss',
+        songId: null,
       },
       {
         title: 'Raving',
+        songId: null,
       },
       {
         title: 'Long Strange Days Pt.2',
+        songId: null,
       },
       {
         title: 'Runaway',
+        songId: null,
       },
       {
         title: '4ever',
+        songId: new ObjectId(),
       },
       {
         title: "I Feel Like Ridin' Slow",
+        songId: null,
       },
     ],
   ],
@@ -161,18 +196,23 @@ const EpOne = {
     [
       {
         title: 'Addicted',
+        songId: null,
       },
       {
         title: 'Disco Elevator',
+        songId: null,
       },
       {
         title: 'Metro',
+        songId: null,
       },
       {
         title: 'Dressing Room (Demo)',
+        songId: null,
       },
       {
         title: 'Dressing Room (Acoustic)',
+        songId: null,
       },
     ],
   ],
@@ -189,21 +229,27 @@ const EpTwo = {
     [
       {
         title: 'Addicted (Re: ver.)',
+        songId: null,
       },
       {
         title: 'Disco Elevator (Re: ver.)',
+        songId: null,
       },
       {
         title: 'Metro (Re: ver.)',
+        songId: null,
       },
       {
         title: 'Dressing Room (Re: ver.)',
+        songId: null,
       },
       {
         title: 'Dressing Room (Acoustic) (Re: ver.)',
+        songId: null,
       },
       {
         title: 'Metro (Acoustic)',
+        songId: null,
       },
     ],
   ],
@@ -220,18 +266,23 @@ const EpThree = {
     [
       {
         title: 'Blood, Sweat & The Beat',
+        songId: null,
       },
       {
         title: "'84",
+        songId: null,
       },
       {
         title: 'Leather',
+        songId: null,
       },
       {
         title: 'Want You Back',
+        songId: null,
       },
       {
         title: "'84 The Original",
+        songId: null,
       },
     ],
   ],
@@ -248,18 +299,23 @@ const EpFour = {
     [
       {
         title: 'Dreaming Kills',
+        songId: null,
       },
       {
         title: 'Follow The White Rabbit (CD ONLY)',
+        songId: null,
       },
       {
         title: 'Long Strange Days Pt.1',
+        songId: null,
       },
       {
         title: 'Mayhem',
+        songId: null,
       },
       {
         title: 'Rude & Confused',
+        songId: null,
       },
     ],
   ],
@@ -276,9 +332,11 @@ const SingleOne = {
     [
       {
         title: 'Au Revoir',
+        songId: null,
       },
       {
         title: "60's Cardin",
+        songId: null,
       },
     ],
   ],
@@ -295,6 +353,7 @@ const SingleTwo = {
     [
       {
         title: 'Velvet Goldmine',
+        songId: null,
       },
     ],
   ],
