@@ -1,3 +1,65 @@
+# 1.0.0 (2023-04-30)
+
+
+### Bug Fixes
+
+* don't remove duplicates in getSortedAlbum ([38d1808](https://github.com/crackyachae/lyrink/commit/38d1808bbbd7fdd3ece9df945362621edb4da5dd))
+* fix page route of song page ([490f4df](https://github.com/crackyachae/lyrink/commit/490f4dfd43c1881fbbedb02daed8ca57d4ae7d18))
+* fix that app returns nothing ([a79860c](https://github.com/crackyachae/lyrink/commit/a79860cd9a7f6add1d69ef234a2cd489e51b982a))
+* resolve Can't resolve 'fs' error ([09180a2](https://github.com/crackyachae/lyrink/commit/09180a2620e5588877c9af893273e0dfa76eaae2))
+* resolve can't use fs module error ([5b59ad9](https://github.com/crackyachae/lyrink/commit/5b59ad9263815101c9a6264539e676273e177c27))
+
+
+### Features
+
+* add artist page with TODO ([6bc717b](https://github.com/crackyachae/lyrink/commit/6bc717b1a9db2945d89faf223b6fcd316231ebbb))
+* add baseUrl to config ([b7aa64f](https://github.com/crackyachae/lyrink/commit/b7aa64f47fa1a8449d436d2903523e33a1d2bf44))
+* add config file ([34de286](https://github.com/crackyachae/lyrink/commit/34de28682ee75ff04c1344050f742ebda6eeb480))
+* add service index file ([09b49be](https://github.com/crackyachae/lyrink/commit/09b49bec5da5d0540070ea54d985d7a3b6c63b2b))
+* add song type and fixtures and ([d17f52a](https://github.com/crackyachae/lyrink/commit/d17f52a258a9d856066ae80d77ce40152e904c8b))
+* add useSong react query hook ([2c144a0](https://github.com/crackyachae/lyrink/commit/2c144a05ac34df9efadcccf57b10e6fe6293d0ad))
+* album list with only title renders ([d1dbebf](https://github.com/crackyachae/lyrink/commit/d1dbebf08e2e807c010b9da142cc5b847706c7f5))
+* change config to use memory server for test ([70ad00c](https://github.com/crackyachae/lyrink/commit/70ad00cbbcbb60db9b314d112f423adc6a54799a))
+* change filter order ([7b40b8b](https://github.com/crackyachae/lyrink/commit/7b40b8b5512e26eb98f1a1d4fb68bbeb88eed6c9))
+* change type of ALBUM_TYPE enum to string ([ee63ac9](https://github.com/crackyachae/lyrink/commit/ee63ac9c90453b322869c83698d718259e03d810))
+* change type of releaseData ([5c3d3a6](https://github.com/crackyachae/lyrink/commit/5c3d3a691a577741fed50e91ac30bc702b64c70c))
+* create album filter data and render it ([3a9dfce](https://github.com/crackyachae/lyrink/commit/3a9dfce69a401ee9e3afaa62db5162a3fdcdd6a3))
+* don't use joi ([3ecafb2](https://github.com/crackyachae/lyrink/commit/3ecafb24729c2827b2c1fc1ea90ae899c46425a7))
+* implement album service with getAllAlbumList ([4ea3c7f](https://github.com/crackyachae/lyrink/commit/4ea3c7f66233d6fdbddfd99fbe1bd2ef5472894c))
+* implement albums api ([eca53e6](https://github.com/crackyachae/lyrink/commit/eca53e6cbb9c9fb54565b43703bd16904f51c027))
+* implement filter for album ([7acd1e3](https://github.com/crackyachae/lyrink/commit/7acd1e316b9f9544cba992ec2bb8e39cdfa9cdf4))
+* implement song information ([10deab1](https://github.com/crackyachae/lyrink/commit/10deab16f3040d631f2e63a43804f7dd21b69e67))
+* implement song page container ([92ed751](https://github.com/crackyachae/lyrink/commit/92ed751d7083a189b2350c0da6de54e31a22d4ed))
+* implement song service ([7d85232](https://github.com/crackyachae/lyrink/commit/7d85232f3d2b850d124d04d88da4d42d6a2b112b))
+* implement songs/songId api ([f5ad6fb](https://github.com/crackyachae/lyrink/commit/f5ad6fbaf5df2e2e8cf4fd22db3c64ef854e5c0e))
+* install node-mocks-http for api test ([4cfcdb4](https://github.com/crackyachae/lyrink/commit/4cfcdb44abf3bf0fbc997d570a9d8e5b2aa27354))
+* install RTL user event module ([029f955](https://github.com/crackyachae/lyrink/commit/029f9557bb5a2069c25f1882e959b4b8487fe2fa))
+* modify type of return value of Object.keys ([5e63b64](https://github.com/crackyachae/lyrink/commit/5e63b64a40b37071ccdfea87bcf56d0a4daa5470))
+* pre render albums with static generation ([524e19e](https://github.com/crackyachae/lyrink/commit/524e19e9707e0b7bd46683b29780900032233cc3))
+* prefecth query data with hydration ([1ee0bb5](https://github.com/crackyachae/lyrink/commit/1ee0bb54f4fd399079b8e5983113f94c09e14466))
+* render album list with full information ([3a9092b](https://github.com/crackyachae/lyrink/commit/3a9092bd5b12138d03b2953380cbcd5674b3015f))
+* render different based on query status ([03d1b6a](https://github.com/crackyachae/lyrink/commit/03d1b6aeaafa2f0d9c1e1cbeb1a563ee6094daad))
+* render disk row ([642a03e](https://github.com/crackyachae/lyrink/commit/642a03ea54e92918c5777ee62f245076947159e2))
+* replace _id of album fixture to id ([f6e53a1](https://github.com/crackyachae/lyrink/commit/f6e53a1dac61310f253220e2b6ce6c424dedc683))
+* reset metadata props ([5e2e193](https://github.com/crackyachae/lyrink/commit/5e2e1933c9140206cf4944cd703df32b4fdb4e95))
+* retrieve Next-js-Boilerplate v3.6.0 ([99baea6](https://github.com/crackyachae/lyrink/commit/99baea6f921f04076ea89da285c272c87472164d))
+* separate album list as component ([f689461](https://github.com/crackyachae/lyrink/commit/f689461188bc7f3da886830f6f5f7a66e0c91a9e))
+* separate song fetch logic as getSong fnc ([cdd2ef2](https://github.com/crackyachae/lyrink/commit/cdd2ef20c7ac9445305d6c53d2812631e77bb545))
+* set up mongoDB connection ([deeb20e](https://github.com/crackyachae/lyrink/commit/deeb20ed67353e5fb1e234310e3effd164dec107))
+* song list has link to song page if it exists ([da5005b](https://github.com/crackyachae/lyrink/commit/da5005b60167078316d74c49d7db3131968b5abc))
+* song page fetch song data with SSR ([008b1ad](https://github.com/crackyachae/lyrink/commit/008b1ade59ad4d46b0bea62b5dea8f5c5389b10b))
+* specify the type of album collection ([7510f96](https://github.com/crackyachae/lyrink/commit/7510f96f6a07df9952c0db21742bee76958b8aa5))
+* update album filter format ([ca2afa0](https://github.com/crackyachae/lyrink/commit/ca2afa05f29e7b89da4d966d0973f03911b6550f))
+* use config file ([8b60f47](https://github.com/crackyachae/lyrink/commit/8b60f473e589f121cc658ac3227280888dfff790))
+* use jest-fetch-mock ([c9c3903](https://github.com/crackyachae/lyrink/commit/c9c390334f117962cafa5ef8847b0c4dee7c2047))
+* use MongoDB ([e1a176d](https://github.com/crackyachae/lyrink/commit/e1a176d96d3a5537f689830d2cc7e3d1169ac430))
+* use react-query ([710924f](https://github.com/crackyachae/lyrink/commit/710924ffcbbc5a8cb8b90e66b53751574a629134))
+
+
+### Reverts
+
+* "replace _id of album fixture to id" ([ff4a7c9](https://github.com/crackyachae/lyrink/commit/ff4a7c9a214e1537602fec9fe62fbf400b0674af))
+
 # [3.6.0](https://github.com/ixartz/Next-js-Boilerplate/compare/v3.5.4...v3.6.0) (2022-12-03)
 
 
