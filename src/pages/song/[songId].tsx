@@ -4,6 +4,7 @@ import { dehydrate, QueryClient } from '@tanstack/react-query';
 import type { GetServerSidePropsContext } from 'next';
 import { useRouter } from 'next/router';
 
+import type { TSong } from '@/@types/song';
 import publicAPI from '@/api/public';
 import queryKey from '@/hooks/query-keys';
 import { useSongQuery } from '@/hooks/useSong';
@@ -39,9 +40,28 @@ export default function SongPage() {
     );
   }
 
+  // TODO: handle that song can be undefined
+  const { songTitle, albumTitle, artists, lyrics } = song as TSong;
+
   return (
     <Main meta={<Meta title="TODO" description="TODO" />}>
-      <>{song}</>
+      <h3>{songTitle}</h3>
+      <div>
+        <span>{albumTitle}</span> | <span>{artists}</span>
+      </div>
+      <div>
+        {lyrics?.map((section, i) => (
+          <div key={`section-${i}`}>
+            {section.phrases.map((phrase, j) => (
+              <div key={`phrase-${j}`}>
+                {phrase.words.map((word, k) => (
+                  <span key={`work-${k}`}>{word.wordText} </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </Main>
   );
 }
