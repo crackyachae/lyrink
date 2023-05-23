@@ -4,18 +4,18 @@
 
 import type { UseQueryResult } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
-import jestFetchMock from 'jest-fetch-mock';
+import type axios from 'axios';
 import type { GetServerSidePropsContext } from 'next';
 import type { NextRouter } from 'next/router';
 import { useRouter } from 'next/router';
 import type { ParsedUrlQuery } from 'querystring';
 
 import type { TSong } from '@/@types/song';
-import config from '@/configs/config';
 import { useSongQuery } from '@/hooks/useSong';
 import SongPage, { getServerSideProps } from '@/pages/song/[songId]';
 
 import { Studio1Track2 } from '../../tests/fixtures/song.fixture';
+import publicRequest from '../utils/api';
 
 const song = Studio1Track2;
 
@@ -32,14 +32,18 @@ jest.mock('next/router', () => ({
   useRouter: jest.fn(),
 }));
 
+jest.mock('../utils/api');
+
 describe('GIVEN Song page', () => {
   describe('WHEN getServerSideProps works', () => {
-    beforeEach(() => {
-      jestFetchMock.resetMocks();
-    });
-
     it('should pass props containing dehydratedState with song data cached', async () => {
-      jestFetchMock.mockResponseOnce(JSON.stringify(song));
+      const publicRequestMock = publicRequest as jest.MockedFunction<
+        typeof axios
+      >;
+
+      publicRequestMock.mockImplementationOnce(() =>
+        Promise.resolve({ data: song })
+      );
       const context = {
         params: { songId: `${song._id}` } as ParsedUrlQuery,
       };
@@ -48,9 +52,10 @@ describe('GIVEN Song page', () => {
         context as GetServerSidePropsContext
       );
 
-      expect(jestFetchMock).toHaveBeenCalledWith(
-        `${config.baseUrl}/api/songs/${song._id}`
-      );
+      expect(publicRequestMock).toHaveBeenCalledWith({
+        url: `/songs/${song._id}`,
+        method: 'GET',
+      });
       // TODO: Need to improve to check dehydrateState in props
       expect(response.props).toHaveProperty('dehydratedState');
     });
