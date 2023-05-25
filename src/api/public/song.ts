@@ -1,9 +1,14 @@
+import type { AxiosResponse } from 'axios';
+
 import type { TSong } from '@/@types/song';
-import config from '@/configs/config';
 
-export const getSong = async (songId: string): Promise<TSong> => {
-  const response = await fetch(`${config.baseUrl}/api/songs/${songId}`);
-  const result = await response.json();
+import publicRequest from '../../utils/api';
 
-  return result;
+export const getSong = async (
+  songId: string
+): Promise<AxiosResponse<TSong>> => {
+  return publicRequest({
+    url: `/songs/${songId}`,
+    method: 'GET',
+  });
 };

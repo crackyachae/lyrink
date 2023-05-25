@@ -71,9 +71,13 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     const { songId } = context.params || { songId: '' };
 
     const queryClient = new QueryClient();
-    await queryClient.prefetchQuery([queryKey.SONG, songId], () =>
-      publicAPI.getSong(songId as string)
-    );
+    await queryClient.prefetchQuery({
+      queryKey: [queryKey.SONG, songId],
+      queryFn: async () => {
+        const response = await publicAPI.getSong(songId as string);
+        return response.data;
+      },
+    });
 
     return {
       props: {
