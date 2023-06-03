@@ -34,12 +34,11 @@ jest.mock('next/router', () => ({
 
 jest.mock('../utils/api');
 
-describe('GIVEN Song page', () => {
+describe('GIVEN getServerSideProps', () => {
+  const publicRequestMock = publicRequest as jest.MockedFunction<typeof axios>;
+
   describe('WHEN songId is invalid', () => {
     it('should return notFound with true', async () => {
-      const publicRequestMock = publicRequest as jest.MockedFunction<
-        typeof axios
-      >;
       publicRequestMock.mockImplementationOnce(() => Promise.reject());
       const context = {
         params: { songId: 'invalid-song-id' } as ParsedUrlQuery,
@@ -54,11 +53,8 @@ describe('GIVEN Song page', () => {
     });
   });
 
-  describe('WHEN getServerSideProps works', () => {
+  describe('WHEN songId is valid', () => {
     it('should pass props containing dehydratedState with song data cached', async () => {
-      const publicRequestMock = publicRequest as jest.MockedFunction<
-        typeof axios
-      >;
       publicRequestMock.mockImplementationOnce(() =>
         Promise.resolve({ data: song })
       );
@@ -78,7 +74,9 @@ describe('GIVEN Song page', () => {
       expect(response.props).toHaveProperty('dehydratedState');
     });
   });
+});
 
+describe('GIVEN SongPage Component', () => {
   const useSongQueryMock = useSongQuery as jest.MockedFunction<
     (songId: string) => TUseQueryResultMock<TSong, Error>
   >;
