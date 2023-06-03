@@ -35,12 +35,30 @@ jest.mock('next/router', () => ({
 jest.mock('../utils/api');
 
 describe('GIVEN Song page', () => {
+  describe('WHEN songId is invalid', () => {
+    it('should return notFound with true', async () => {
+      const publicRequestMock = publicRequest as jest.MockedFunction<
+        typeof axios
+      >;
+      publicRequestMock.mockImplementationOnce(() => Promise.reject());
+      const context = {
+        params: { songId: 'invalid-song-id' } as ParsedUrlQuery,
+      };
+
+      const error = await getServerSideProps(
+        context as GetServerSidePropsContext
+      );
+
+      expect(error).toHaveProperty('notFound');
+      expect(error.notFound).toEqual(true);
+    });
+  });
+
   describe('WHEN getServerSideProps works', () => {
     it('should pass props containing dehydratedState with song data cached', async () => {
       const publicRequestMock = publicRequest as jest.MockedFunction<
         typeof axios
       >;
-
       publicRequestMock.mockImplementationOnce(() =>
         Promise.resolve({ data: song })
       );
