@@ -33,15 +33,8 @@ export default function ArtistPage({ albums }: { albums: TAlbum[] }) {
 }
 
 export async function getStaticProps() {
-  try {
-    const response = await fetch(`${config.baseUrl}/api/albums`);
-    const result = await response.json();
+  const response = await fetch(`${config.baseUrl}/api/albums`);
+  const result = await response.json();
 
-    return { props: { albums: result } };
-  } catch (e) {
-    return {
-      // TODO: handle error
-      props: {},
-    };
-  }
+  return { props: { albums: result } };
 }
