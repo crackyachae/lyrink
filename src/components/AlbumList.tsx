@@ -6,7 +6,7 @@ import { AlbumTypeMap } from './constants';
 
 export default function AlbumList({ albums }: { albums: TAlbum[] }) {
   return (
-    <section>
+    <main>
       {albums.map((album) => {
         const {
           _id,
@@ -65,6 +65,6 @@ export default function AlbumList({ albums }: { albums: TAlbum[] }) {
           </div>
         );
       })}
-    </section>
+    </main>
   );
 }
