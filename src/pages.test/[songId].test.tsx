@@ -37,6 +37,22 @@ jest.mock('../utils/api');
 describe('GIVEN getServerSideProps', () => {
   const publicRequestMock = publicRequest as jest.MockedFunction<typeof axios>;
 
+  describe('WHEN context param does not exist', () => {
+    it('should return notFound with true', async () => {
+      publicRequestMock.mockImplementationOnce(() => Promise.reject());
+      const context = {
+        params: undefined,
+      };
+
+      const error = await getServerSideProps(
+        context as GetServerSidePropsContext
+      );
+
+      expect(error).toHaveProperty('notFound');
+      expect(error.notFound).toEqual(true);
+    });
+  });
+
   describe('WHEN songId is invalid', () => {
     it('should return notFound with true', async () => {
       publicRequestMock.mockImplementationOnce(() => Promise.reject());
