@@ -39,12 +39,7 @@ afterAll(async () => {
 });
 
 describe('GIVEN albums route', () => {
-  beforeAll(async () => {
-    const albumsDB = db.collection<TAlbum>('albums');
-    await albumsDB.insertMany(sampleAlbumList);
-  });
-
-  afterAll(async () => {
+  afterEach(async () => {
     const albumsDB = db.collection<TAlbum>('albums');
     await albumsDB.deleteMany({});
   });
@@ -54,7 +49,10 @@ describe('GIVEN albums route', () => {
       method: 'GET',
     });
 
-    it('should returns response with all album list', async () => {
+    it('should return 200 and all album list if data is OK', async () => {
+      const albumsDB = db.collection<TAlbum>('albums');
+      await albumsDB.insertMany(sampleAlbumList);
+
       await handleAlbums(req, res);
 
       expect(res._getStatusCode()).toBe(200);
@@ -66,7 +64,7 @@ describe('GIVEN albums route', () => {
     });
   });
 
-  describe('WHEN /api/albums called with other method', () => {
+  describe('WHEN NOT-ALLOWED-METHOD /api/albums', () => {
     const { req, res } = createMocks({
       method: 'CONNECT',
     });
