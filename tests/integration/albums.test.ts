@@ -39,11 +39,6 @@ afterAll(async () => {
 });
 
 describe('GIVEN albums route', () => {
-  afterEach(async () => {
-    const albumsDB = db.collection<TAlbum>('albums');
-    await albumsDB.deleteMany({});
-  });
-
   describe('WHEN GET /api/albums', () => {
     const { req, res } = createMocks({
       method: 'GET',
@@ -61,6 +56,8 @@ describe('GIVEN albums route', () => {
 
       expect(resData).toHaveLength(sampleAlbumList.length);
       expect(resData[0]).toEqual(parseFixtureToJson(sortedSampleAlbumList[0]));
+
+      await albumsDB.deleteMany({});
     });
   });
 
